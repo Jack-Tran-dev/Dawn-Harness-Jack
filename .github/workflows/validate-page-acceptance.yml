@@ -1,0 +1,37 @@
+name: Validate Page Acceptance
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-page-acceptance:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run repository tests
+        run: make test
+
+      - name: Inspect harness
+        run: make inspect-harness
+
+      - name: Assert page acceptance artifacts
+        run: |
+          if [ ! -f .shopify-theme-harness/scaffold.json ]; then
+            echo "Skipping page acceptance because this is not an installed harness project."
+            exit 0
+          fi
+          node ./scripts/agent/assert-page-acceptance.mjs . ./starter/theme

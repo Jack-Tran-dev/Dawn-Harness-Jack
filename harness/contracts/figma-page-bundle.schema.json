@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/figma-page-bundle.schema.json",
+  "title": "Figma Page Bundle",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "pageName",
+    "surfaceType",
+    "sharedSurfaceKeys",
+    "sectionIds",
+    "sections"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string"
+    },
+    "pageName": {
+      "type": "string"
+    },
+    "fidelity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["standard", "css-1-to-1"]
+        },
+        "ignoreImageContent": {
+          "type": "boolean"
+        },
+        "requireExplicitLayoutReview": {
+          "type": "boolean"
+        }
+      }
+    },
+    "sectionExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "excludeSectionIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "designSystem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tokenSet", "tokenSourceType"],
+      "properties": {
+        "tokenSet": {
+          "type": "string"
+        },
+        "tokenSourceType": {
+          "type": "string",
+          "enum": ["figma-variables-html", "fallback"]
+        },
+        "variablesHash": {
+          "type": "string"
+        }
+      }
+    },
+    "surfaceType": {
+      "type": "string",
+      "enum": ["page", "product", "cart", "global"]
+    },
+    "sharedSurfaceKeys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sectionIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "slotIndex",
+          "source"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "slotIndex": {
+            "type": "integer"
+          },
+          "implementationHints": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "enum": ["static", "carousel"]
+              },
+              "repeatedContentSource": {
+                "type": "string",
+                "enum": ["settings", "blocks"]
+              },
+              "defaultImplementation": {
+                "type": "string",
+                "enum": ["none", "swiper", "scroll-snap"]
+              },
+              "allowedImplementationExceptions": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["scroll-snap"]
+                }
+              },
+              "themeCodeReuse": {
+                "type": "string",
+                "enum": ["avoid", "allow"]
+              }
+            }
+          },
+          "summary": {
+            "type": "object",
+            "additionalProperties": true,
+            "properties": {
+              "dataBinding": {
+                "oneOf": [
+                  { "type": "null" },
+                  {
+                    "type": "object",
+                    "required": ["kind"],
+                    "properties": {
+                      "kind": {
+                        "type": "string",
+                        "enum": ["product", "collection", "article", "metaobject"]
+                      }
+                    },
+                    "additionalProperties": true
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

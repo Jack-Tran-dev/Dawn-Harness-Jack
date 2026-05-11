@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/agent-tools-config.schema.json",
+  "title": "Agent Tools Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "shopify", "toolServer"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "shopify": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["storeDomain"],
+      "properties": {
+        "storeDomain": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "storefront": {
+      "$ref": "#/$defs/storefrontConfig"
+    },
+    "toolServer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["baseUrl", "auth", "capabilities", "routes"],
+      "properties": {
+        "baseUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "auth": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "tokenEnv"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "bearer-env"
+            },
+            "tokenEnv": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "capabilities": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["shopContext", "imageUpload"],
+          "properties": {
+            "shopContext": {
+              "type": "boolean"
+            },
+            "imageUpload": {
+              "type": "boolean"
+            }
+          }
+        },
+        "routes": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tokenResolve", "shopContext", "syncJobs", "syncJob", "syncJobEvents"],
+          "properties": {
+            "tokenResolve": {
+              "$ref": "#/$defs/tokenResolveRoute"
+            },
+            "shopContext": {
+              "$ref": "#/$defs/shopContextRoute"
+            },
+            "syncJobs": {
+              "$ref": "#/$defs/syncJobsRoute"
+            },
+            "syncJob": {
+              "$ref": "#/$defs/syncJobRoute"
+            },
+            "syncJobEvents": {
+              "$ref": "#/$defs/syncJobEventsRoute"
+            }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "storefrontConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Configuration for the local Shopify theme dev session that scripts/agent/storefront-dev.mjs manages and that verify-section-preview connects to. Lives under shopify-theme-harness's agent-tools.json so the same file scopes ALL data the agent needs to drive the project (store domain, tool server, storefront preview).",
+      "required": ["devUrl"],
+      "properties": {
+        "devUrl": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Local URL where shopify theme dev should bind, e.g. http://127.0.0.1:9292. Port comes from the URL; storefront-dev parses it. Default in agent-tools.example.json is http://127.0.0.1:9292."
+        },
+        "password": {
+          "type": ["string", "null"],
+          "description": "Plaintext storefront password (Online Store → Preferences → Password page). Read by storefront-dev start. Null/empty means the storefront has no password gate."
+        },
+        "themeId": {
+          "type": ["string", "null"],
+          "description": "Optional Shopify theme id to attach the dev session to. Null = let `shopify theme dev` create an unpublished dev theme each session."
+        },
+        "portFallback": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "What storefront-dev does when the configured port is already taken.",
+          "properties": {
+            "strategy": {
+              "type": "string",
+              "enum": ["kill-shopify-only", "increment", "fail"],
+              "default": "kill-shopify-only",
+              "description": "kill-shopify-only: kill the occupant only if its command line contains `shopify`, otherwise emit PREVIEW_PORT_IN_USE_BY_FOREIGN_PROCESS and stop. increment: try the next port (up to incrementMax). fail: never auto-resolve, always stop."
+            },
+            "incrementMax": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 5,
+              "description": "Maximum number of ports to scan past the configured one when strategy=increment."
+            }
+          }
+        }
+      }
+    },
+    "baseRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "path"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "auth": {
+          "type": "string",
+          "const": "bearer"
+        },
+        "contentTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["multipart/form-data", "application/json"]
+          }
+        },
+        "response": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "tokenResolveRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "path", "contentTypes"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "const": "POST"
+        },
+        "path": {
+          "type": "string",
+          "const": "/v1/export-tokens/resolve"
+        },
+        "contentTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["application/json"]
+          }
+        }
+      }
+    },
+    "shopContextRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "path", "auth"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "const": "GET"
+        },
+        "path": {
+          "type": "string",
+          "const": "/v1/shop-context"
+        },
+        "auth": {
+          "type": "string",
+          "const": "bearer"
+        }
+      }
+    },
+    "syncJobsRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "path", "auth", "contentTypes"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "const": "POST"
+        },
+        "path": {
+          "type": "string",
+          "const": "/v1/sync-jobs"
+        },
+        "auth": {
+          "type": "string",
+          "const": "bearer"
+        },
+        "contentTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["multipart/form-data", "application/json"]
+          }
+        }
+      }
+    },
+    "syncJobRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "path"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "const": "GET"
+        },
+        "path": {
+          "type": "string",
+          "const": "/v1/sync-jobs/:jobId"
+        }
+      }
+    },
+    "syncJobEventsRoute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "path", "response"],
+      "properties": {
+        "method": {
+          "type": "string",
+          "const": "GET"
+        },
+        "path": {
+          "type": "string",
+          "const": "/v1/sync-jobs/:jobId/events"
+        },
+        "response": {
+          "type": "string",
+          "const": "text/event-stream"
+        }
+      }
+    }
+  }
+}

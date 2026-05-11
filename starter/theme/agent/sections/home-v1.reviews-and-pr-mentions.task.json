@@ -1,0 +1,249 @@
+{
+  "pageKey": "home-v1",
+  "profile": "kik",
+  "surfaceType": "page",
+  "sectionId": "reviews-and-pr-mentions",
+  "sectionKey": "home-v1.reviews-and-pr-mentions",
+  "templateSectionId": "reviews_and_pr_mentions",
+  "expectedResultPath": "agent/results/home-v1.reviews-and-pr-mentions.result.json",
+  "implementationTarget": {
+    "sectionFile": "sections/kik-reviews-and-pr-mentions.liquid",
+    "snippetFiles": [],
+    "previewTemplate": "templates/index.kik-section-home-v1-reviews-and-pr-mentions.json"
+  },
+  "implementationPolicy": {
+    "pattern": "static",
+    "repeatedContentSource": "blocks",
+    "defaultImplementation": "none",
+    "allowedImplementationExceptions": [],
+    "themeCodeReuse": "avoid"
+  },
+  "fidelity": {
+    "mode": "css-1-to-1",
+    "ignoreImageContent": false,
+    "requireExplicitLayoutReview": true
+  },
+  "templateContract": {
+    "sectionType": "kik-reviews-and-pr-mentions",
+    "allowedSettingIds": [
+      "aria_label",
+      "review_rating",
+      "review_count_label",
+      "review_subtitle",
+      "pr_eyebrow"
+    ],
+    "blockPolicy": "open"
+  },
+  "inputs": {
+    "desktopBundlePath": "figma/home-v1/source-manifest.json",
+    "mobileBundlePath": "figma/home-v1/source-manifest.json",
+    "sourceManifestPath": "figma/home-v1/source-manifest.json",
+    "sourceManifestSection": "reviews-and-pr-mentions",
+    "starterSectionPath": "sections/kik-reviews-and-pr-mentions.liquid",
+    "reviewManifestSection": "reviews-and-pr-mentions",
+    "figmaSource": {
+      "desktop": {
+        "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+        "pageId": "11944",
+        "pageName": "Home V1",
+        "nodeId": "11928:7884",
+        "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-7884&m=dev"
+      },
+      "mobile": {
+        "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+        "pageId": "11944",
+        "pageName": "Home V1",
+        "nodeId": "11928:6915",
+        "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-6915&m=dev"
+      }
+    }
+  },
+  "brief": {
+    "goal": "Render a single-row reviews + press-mentions strip below the hero. Desktop pins two columns (reviews left, press right) separated by a 1px subtle divider; mobile stacks the two columns full-width with no divider. All copy is brand-owned static content; press logos are merchant-supplied via image_picker blocks (the REST asset manifest contains no logo bitmaps because the Figma logos are vector frames, not image fills, so figma-extract-assets cannot capture them).",
+    "content": {
+      "textSnippets": [
+        "4.7/5",
+        "from 1,300+ reviews",
+        "Loved for bedtime, relaxation, and room ambiance.",
+        "AS FEATURED IN"
+      ],
+      "imageAssetPaths": [],
+      "callsToAction": [],
+      "primaryMessage": "Loved for bedtime, relaxation, and room ambiance.",
+      "supportingMessages": [
+        "4.7/5 from 1,300+ reviews",
+        "AS FEATURED IN"
+      ],
+      "ctaLabels": []
+    },
+    "layout": {
+      "desktop": {
+        "canvas": { "width": 1600, "height": 95 },
+        "rootNodeType": "frame",
+        "textNodeCount": 5,
+        "imageNodeCount": 7,
+        "layoutPattern": "two-column-divided",
+        "dominantTextPlacement": "left",
+        "dominantImagePlacement": "inline",
+        "readingOrderTextRegions": [
+          { "name": "review_rating",       "x": 64,  "y": 24,   "width": 32,  "height": 21, "sourceNodeId": "11928:7894" },
+          { "name": "review_count_label",  "x": 100, "y": 24,   "width": 126, "height": 21, "sourceNodeId": "11928:7895" },
+          { "name": "review_subtitle",     "x": 64,  "y": 53,   "width": 736, "height": 18, "sourceNodeId": "11928:7896" },
+          { "name": "pr_eyebrow",          "x": 824, "y": 26.5, "width": 712, "height": 18, "sourceNodeId": "11928:7898" }
+        ],
+        "topTextRegions": [
+          { "name": "review_subtitle", "x": 64,  "y": 53,   "width": 736, "height": 18, "sourceNodeId": "11928:7896" },
+          { "name": "pr_eyebrow",      "x": 824, "y": 26.5, "width": 712, "height": 18, "sourceNodeId": "11928:7898" }
+        ],
+        "topImageRegions": [
+          { "name": "star_ratings", "x": 64,  "y": 29.5, "width": 58,  "height": 10, "sourceNodeId": "11928:7887" },
+          { "name": "pr_logos_row", "x": 824, "y": 52.5, "width": 712, "height": 16, "sourceNodeId": "11928:7899" }
+        ],
+        "primaryTextBox":  { "x": 64,  "y": 53,   "width": 736, "height": 18, "sourceNodeId": "11928:7896" },
+        "primaryImageBox": { "x": 824, "y": 52.5, "width": 712, "height": 16, "sourceNodeId": "11928:7899" },
+        "assetPaths": [],
+        "backgroundFillPath": null,
+        "diagnostics": []
+      },
+      "mobile": {
+        "canvas": { "width": 414, "height": 134 },
+        "rootNodeType": "frame",
+        "textNodeCount": 5,
+        "imageNodeCount": 7,
+        "layoutPattern": "single-column-stacked",
+        "dominantTextPlacement": "left",
+        "dominantImagePlacement": "inline",
+        "readingOrderTextRegions": [
+          { "name": "review_rating",       "x": 16, "y": 16,  "width": 30,  "height": 20, "sourceNodeId": "11928:6925" },
+          { "name": "review_count_label",  "x": 50, "y": 16,  "width": 117, "height": 20, "sourceNodeId": "11928:6926" },
+          { "name": "review_subtitle",     "x": 16, "y": 44,  "width": 382, "height": 17, "sourceNodeId": "11928:6927" },
+          { "name": "pr_eyebrow",          "x": 16, "y": 77,  "width": 382, "height": 17, "sourceNodeId": "11928:6929" }
+        ],
+        "topTextRegions": [
+          { "name": "review_subtitle", "x": 16, "y": 44, "width": 382, "height": 17, "sourceNodeId": "11928:6927" },
+          { "name": "pr_eyebrow",      "x": 16, "y": 77, "width": 382, "height": 17, "sourceNodeId": "11928:6929" }
+        ],
+        "topImageRegions": [
+          { "name": "star_ratings", "x": 16, "y": 21,  "width": 58,  "height": 10, "sourceNodeId": "11928:6918" },
+          { "name": "pr_logos_row", "x": 16, "y": 102, "width": 382, "height": 16, "sourceNodeId": "11928:6930" }
+        ],
+        "primaryTextBox":  { "x": 16, "y": 44,  "width": 382, "height": 17, "sourceNodeId": "11928:6927" },
+        "primaryImageBox": { "x": 16, "y": 102, "width": 382, "height": 16, "sourceNodeId": "11928:6930" },
+        "assetPaths": [],
+        "backgroundFillPath": null,
+        "diagnostics": []
+      }
+    },
+    "blocks": [
+      { "blockIndex": 0, "blockType": "pr_logo", "alt": "Associated Press" },
+      { "blockIndex": 1, "blockType": "pr_logo", "alt": "Yahoo!" },
+      { "blockIndex": 2, "blockType": "pr_logo", "alt": "CBS" },
+      { "blockIndex": 3, "blockType": "pr_logo", "alt": "NBC" },
+      { "blockIndex": 4, "blockType": "pr_logo", "alt": "ABC News" },
+      { "blockIndex": 5, "blockType": "pr_logo", "alt": "KTXL" }
+    ],
+    "source": {
+      "figma": {
+        "desktop": {
+          "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+          "pageId": "11944",
+          "pageName": "Home V1",
+          "nodeId": "11928:7884",
+          "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-7884&m=dev"
+        },
+        "mobile": {
+          "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+          "pageId": "11944",
+          "pageName": "Home V1",
+          "nodeId": "11928:6915",
+          "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-6915&m=dev"
+        }
+      },
+      "mcpInspections": [
+        {
+          "breakpoint": "desktop",
+          "rootNodeId": "11928:7884",
+          "callType": "get_metadata",
+          "capturedAt": "2026-05-08T09:46:00Z",
+          "childNodeIds": [
+            "11928:7884",
+            "11928:7885",
+            "11928:7886",
+            "11928:7887",
+            "11928:7893",
+            "11928:7894",
+            "11928:7895",
+            "11928:7896",
+            "11928:7897",
+            "11928:7898",
+            "11928:7899"
+          ]
+        },
+        {
+          "breakpoint": "desktop",
+          "rootNodeId": "11928:7884",
+          "callType": "get_design_context",
+          "capturedAt": "2026-05-08T09:47:00Z",
+          "childNodeIds": [
+            "11928:7884",
+            "11928:7885",
+            "11928:7886",
+            "11928:7887",
+            "11928:7893",
+            "11928:7894",
+            "11928:7895",
+            "11928:7896",
+            "11928:7897",
+            "11928:7898",
+            "11928:7899"
+          ]
+        },
+        {
+          "breakpoint": "mobile",
+          "rootNodeId": "11928:6915",
+          "callType": "get_metadata",
+          "capturedAt": "2026-05-08T09:46:00Z",
+          "childNodeIds": [
+            "11928:6915",
+            "11928:6916",
+            "11928:6917",
+            "11928:6918",
+            "11928:6924",
+            "11928:6925",
+            "11928:6926",
+            "11928:6927",
+            "11928:6928",
+            "11928:6929",
+            "11928:6930"
+          ]
+        },
+        {
+          "breakpoint": "mobile",
+          "rootNodeId": "11928:6915",
+          "callType": "get_design_context",
+          "capturedAt": "2026-05-08T09:47:00Z",
+          "childNodeIds": [
+            "11928:6915",
+            "11928:6916",
+            "11928:6917",
+            "11928:6918",
+            "11928:6924",
+            "11928:6925",
+            "11928:6926",
+            "11928:6927",
+            "11928:6928",
+            "11928:6929",
+            "11928:6930"
+          ]
+        }
+      ]
+    },
+    "diagnostics": [
+      {
+        "code": "REST_ASSET_MANIFEST_HAS_NO_LOGOS",
+        "severity": "info",
+        "message": "design-assets/manifest.json contains no entries for the reviews-and-pr-mentions section because all child icons (5 stars, 6 PR logos) are Figma vector frames, not image-fill nodes. The REST extractor only captures kind=image-fill, so the manifest cannot supply these icons. Star ratings are rendered as inline SVG; PR logos are merchant-supplied via image_picker blocks with a Shopify placeholder fallback."
+      }
+    ]
+  }
+}

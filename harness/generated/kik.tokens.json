@@ -1,0 +1,334 @@
+{
+  "source": {
+    "type": "css-token-file",
+    "path": "design-tokens/figma.variables2css.css",
+    "hash": "43790c37b81f0f8566022249ac6edcf29a171ca569d003cc49f32678b55787d4"
+  },
+  "modes": {
+    "mobile": "default",
+    "desktop": "@media (min-width: 768px)"
+  },
+  "tokens": {
+    "--kik-color-action-primary": {
+      "mobile": "#002b4e",
+      "desktop": "#002b4e"
+    },
+    "--kik-color-action-primary-hover": {
+      "mobile": "#ffffff",
+      "desktop": "#ffffff"
+    },
+    "--kik-color-action-secondary": {
+      "mobile": "#ffffff",
+      "desktop": "#ffffff"
+    },
+    "--kik-color-action-secondary-hover": {
+      "mobile": "#002b4e",
+      "desktop": "#002b4e"
+    },
+    "--kik-color-bg-alt-2": {
+      "mobile": "#e8e8e8",
+      "desktop": "#e8e8e8"
+    },
+    "--kik-color-bg-alt-white---50": {
+      "mobile": "#ffffff80",
+      "desktop": "#ffffff80"
+    },
+    "--kik-color-bg-discount": {
+      "mobile": "#db3535",
+      "desktop": "#db3535"
+    },
+    "--kik-color-bg-discount-alt": {
+      "mobile": "#fbebeb",
+      "desktop": "#fbebeb"
+    },
+    "--kik-color-bg-inverse": {
+      "mobile": "#002b4e",
+      "desktop": "#002b4e"
+    },
+    "--kik-color-bg-inverse---10": {
+      "mobile": "#f2f4f6",
+      "desktop": "#f2f4f6"
+    },
+    "--kik-color-bg-page": {
+      "mobile": "#fefaf2",
+      "desktop": "#fefaf2"
+    },
+    "--kik-color-bg-star": {
+      "mobile": "#fecf84",
+      "desktop": "#fecf84"
+    },
+    "--kik-color-bg-surface": {
+      "mobile": "#ffffff",
+      "desktop": "#ffffff"
+    },
+    "--kik-color-border-default": {
+      "mobile": "#000000",
+      "desktop": "#000000"
+    },
+    "--kik-color-border-subtle": {
+      "mobile": "#e8e8e8",
+      "desktop": "#e8e8e8"
+    },
+    "--kik-color-semantic-error": {
+      "mobile": "#db3535",
+      "desktop": "#db3535"
+    },
+    "--kik-color-semantic-success": {
+      "mobile": "#4ad55a",
+      "desktop": "#4ad55a"
+    },
+    "--kik-color-semantic-warning": {
+      "mobile": "#ebdb29",
+      "desktop": "#ebdb29"
+    },
+    "--kik-color-text-disable": {
+      "mobile": "#ccd3d9",
+      "desktop": "#ccd3d9"
+    },
+    "--kik-color-text-inverse": {
+      "mobile": "#ffffff",
+      "desktop": "#ffffff"
+    },
+    "--kik-color-text-primary": {
+      "mobile": "#002b4e",
+      "desktop": "#002b4e"
+    },
+    "--kik-color-text-secondary": {
+      "mobile": "#323232",
+      "desktop": "#323232"
+    },
+    "--kik-color-text-tertiary": {
+      "mobile": "#616568",
+      "desktop": "#616568"
+    },
+    "--kik-radius-2xl": {
+      "mobile": "40px",
+      "desktop": "40px"
+    },
+    "--kik-radius-lg": {
+      "mobile": "12px",
+      "desktop": "16px"
+    },
+    "--kik-radius-md": {
+      "mobile": "8px",
+      "desktop": "12px"
+    },
+    "--kik-radius-none": {
+      "mobile": "0px",
+      "desktop": "0px"
+    },
+    "--kik-radius-pill": {
+      "mobile": "100px",
+      "desktop": "100px"
+    },
+    "--kik-radius-sm": {
+      "mobile": "4px",
+      "desktop": "8px"
+    },
+    "--kik-radius-xl": {
+      "mobile": "24px",
+      "desktop": "32px"
+    },
+    "--kik-radius-xsm": {
+      "mobile": "2px",
+      "desktop": "4px"
+    },
+    "--kik-spacing-12": {
+      "mobile": "12px",
+      "desktop": "12px"
+    },
+    "--kik-spacing-16": {
+      "mobile": "16px",
+      "desktop": "16px"
+    },
+    "--kik-spacing-2": {
+      "mobile": "2px",
+      "desktop": "2px"
+    },
+    "--kik-spacing-24": {
+      "mobile": "24px",
+      "desktop": "24px"
+    },
+    "--kik-spacing-32": {
+      "mobile": "32px",
+      "desktop": "32px"
+    },
+    "--kik-spacing-4": {
+      "mobile": "4px",
+      "desktop": "4px"
+    },
+    "--kik-spacing-40": {
+      "mobile": "40px",
+      "desktop": "40px"
+    },
+    "--kik-spacing-8": {
+      "mobile": "8px",
+      "desktop": "8px"
+    },
+    "--kik-spacing-lg": {
+      "mobile": "16px",
+      "desktop": "24px"
+    },
+    "--kik-spacing-md": {
+      "mobile": "8px",
+      "desktop": "16px"
+    },
+    "--kik-spacing-page-default": {
+      "mobile": "16px",
+      "desktop": "64px"
+    },
+    "--kik-spacing-page-full": {
+      "mobile": "0px",
+      "desktop": "0px"
+    },
+    "--kik-spacing-page-semi-full": {
+      "mobile": "16px",
+      "desktop": "20px"
+    },
+    "--kik-spacing-section-lg": {
+      "mobile": "48px",
+      "desktop": "96px"
+    },
+    "--kik-spacing-section-md": {
+      "mobile": "48px",
+      "desktop": "64px"
+    },
+    "--kik-spacing-section-sm": {
+      "mobile": "32px",
+      "desktop": "48px"
+    },
+    "--kik-spacing-sm": {
+      "mobile": "4px",
+      "desktop": "8px"
+    },
+    "--kik-spacing-xl": {
+      "mobile": "24px",
+      "desktop": "32px"
+    },
+    "--kik-text-font-body": {
+      "mobile": "Funnel Sans",
+      "desktop": "Funnel Sans"
+    },
+    "--kik-text-font-heading": {
+      "mobile": "Satoshi",
+      "desktop": "Satoshi"
+    },
+    "--kik-text-size-body-lg": {
+      "mobile": "16px",
+      "desktop": "18px"
+    },
+    "--kik-text-size-body-md": {
+      "mobile": "14px",
+      "desktop": "16px"
+    },
+    "--kik-text-size-body-sm": {
+      "mobile": "13px",
+      "desktop": "14px"
+    },
+    "--kik-text-size-body-xsm": {
+      "mobile": "11px",
+      "desktop": "12px"
+    },
+    "--kik-text-size-h1": {
+      "mobile": "36px",
+      "desktop": "44px"
+    },
+    "--kik-text-size-h2": {
+      "mobile": "32px",
+      "desktop": "36px"
+    },
+    "--kik-text-size-h3": {
+      "mobile": "28px",
+      "desktop": "32px"
+    },
+    "--kik-text-size-h4": {
+      "mobile": "22px",
+      "desktop": "28px"
+    },
+    "--kik-text-size-h5": {
+      "mobile": "20px",
+      "desktop": "22px"
+    },
+    "--kik-text-size-h6": {
+      "mobile": "18px",
+      "desktop": "20px"
+    }
+  },
+  "tailwind": {
+    "color": {
+      "page": "--kik-color-bg-page",
+      "surface": "--kik-color-bg-surface",
+      "alt-2": "--kik-color-bg-alt-2",
+      "surface-inverse": "--kik-color-bg-inverse",
+      "primary": "--kik-color-text-primary",
+      "secondary": "--kik-color-text-secondary",
+      "inverse": "--kik-color-text-inverse",
+      "border-subtle": "--kik-color-border-subtle",
+      "border-default": "--kik-color-border-default",
+      "action-primary": "--kik-color-action-primary",
+      "action-primary-hover": "--kik-color-action-primary-hover",
+      "action-secondary": "--kik-color-action-secondary",
+      "action-secondary-hover": "--kik-color-action-secondary-hover",
+      "semantic-error": "--kik-color-semantic-error",
+      "semantic-success": "--kik-color-semantic-success",
+      "semantic-warning": "--kik-color-semantic-warning"
+    },
+    "spacing": {
+      "page": "--kik-spacing-page-default",
+      "page-default": "--kik-spacing-page-default",
+      "page-semi-full": "--kik-spacing-page-semi-full",
+      "page-full": "--kik-spacing-page-full",
+      "section-sm": "--kik-spacing-section-sm",
+      "section-md": "--kik-spacing-section-md",
+      "section-lg": "--kik-spacing-section-lg",
+      "sm": "--kik-spacing-sm",
+      "md": "--kik-spacing-md",
+      "lg": "--kik-spacing-lg",
+      "xl": "--kik-spacing-xl",
+      "2": "--kik-spacing-2",
+      "4": "--kik-spacing-4",
+      "8": "--kik-spacing-8",
+      "12": "--kik-spacing-12",
+      "16": "--kik-spacing-16",
+      "24": "--kik-spacing-24",
+      "32": "--kik-spacing-32",
+      "40": "--kik-spacing-40",
+      "48": "--kik-spacing-section-sm",
+      "64": "--kik-spacing-section-md",
+      "96": "--kik-spacing-section-lg"
+    },
+    "radius": {
+      "0": "--kik-radius-none",
+      "none": "--kik-radius-none",
+      "xsm": "--kik-radius-xsm",
+      "sm": "--kik-radius-sm",
+      "md": "--kik-radius-md",
+      "lg": "--kik-radius-lg",
+      "xl": "--kik-radius-xl",
+      "2xl": "--kik-radius-2xl",
+      "pill": "--kik-radius-pill",
+      "10": "--kik-radius-sm",
+      "16": "--kik-radius-md",
+      "24": "--kik-radius-lg",
+      "32": "--kik-radius-xl",
+      "40": "--kik-radius-2xl",
+      "100": "--kik-radius-pill"
+    },
+    "font": {
+      "sans": "--kik-text-font-body",
+      "heading": "--kik-text-font-heading"
+    },
+    "text": {
+      "h1": "--kik-text-size-h1",
+      "h2": "--kik-text-size-h2",
+      "h3": "--kik-text-size-h3",
+      "h4": "--kik-text-size-h4",
+      "h5": "--kik-text-size-h5",
+      "h6": "--kik-text-size-h6",
+      "body-lg": "--kik-text-size-body-lg",
+      "body-md": "--kik-text-size-body-md",
+      "body-sm": "--kik-text-size-body-sm",
+      "body-xsm": "--kik-text-size-body-xsm"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "pageKey": "home-v1",
+  "sectionId": "reviews-and-pr-mentions",
+  "templateSectionId": "reviews_and_pr_mentions",
+  "sectionType": "kik-reviews-and-pr-mentions",
+  "routeKey": "pagePreviewUrl",
+  "view": "kik-section-home-v1-reviews-and-pr-mentions",
+  "templatePath": "templates/index.kik-section-home-v1-reviews-and-pr-mentions.json",
+  "previewUrl": "http://127.0.0.1:9292/?view=kik-section-home-v1-reviews-and-pr-mentions",
+  "status": "created"
+}

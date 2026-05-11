@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness/contracts/kik-token-source.schema.json",
+  "title": "Kik Token Source Metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["tokenSet", "sourceType"],
+  "properties": {
+    "tokenSet": {
+      "type": "string",
+      "enum": ["kik"]
+    },
+    "sourceType": {
+      "type": "string",
+      "enum": ["figma-variables-html", "fallback"]
+    },
+    "variablesHash": {
+      "type": "string"
+    },
+    "variablesTableHtmlPath": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "__THEME_NAME__",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "concurrently -k -n theme,css,js \"shopify theme dev -e this --host 127.0.0.1 --port 9292\" \"pnpm dev:css\" \"pnpm dev:js\"",
+    "dev:css": "tailwindcss -i src/input.css -o assets/kik-theme.css --watch",
+    "dev:js": "vite build --watch --mode development",
+    "build": "pnpm build:css && pnpm build:js",
+    "build:css": "tailwindcss -i src/input.css -o assets/kik-theme.css --minify",
+    "build:js": "vite build --mode production"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "@tailwindcss/postcss": "^4.2.1",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.2.1",
+    "vite": "^7.3.1"
+  }
+}

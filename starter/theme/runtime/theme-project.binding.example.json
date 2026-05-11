@@ -1,0 +1,6 @@
+{
+  "captureSourceDir": "",
+  "capturePathStyle": "flat",
+  "pageKeys": [],
+  "notes": "Copy this file to theme-project.binding.json and point captureSourceDir at your real theme screenshot output directory."
+}

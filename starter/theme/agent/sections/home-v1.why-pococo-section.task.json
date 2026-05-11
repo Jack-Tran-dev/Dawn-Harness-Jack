@@ -1,0 +1,249 @@
+{
+  "pageKey": "home-v1",
+  "profile": "kik",
+  "surfaceType": "page",
+  "sectionId": "why-pococo-section",
+  "sectionKey": "home-v1.why-pococo-section",
+  "templateSectionId": "why_pococo_section",
+  "expectedResultPath": "agent/results/home-v1.why-pococo-section.result.json",
+  "implementationTarget": {
+    "sectionFile": "sections/kik-why-pococo-section.liquid",
+    "snippetFiles": [],
+    "previewTemplate": "templates/index.kik-section-home-v1-why-pococo-section.json"
+  },
+  "implementationPolicy": {
+    "pattern": "static",
+    "repeatedContentSource": "blocks",
+    "defaultImplementation": "none",
+    "allowedImplementationExceptions": [],
+    "themeCodeReuse": "avoid"
+  },
+  "fidelity": {
+    "mode": "css-1-to-1",
+    "ignoreImageContent": false,
+    "requireExplicitLayoutReview": true
+  },
+  "templateContract": {
+    "sectionType": "kik-why-pococo-section",
+    "allowedSettingIds": [
+      "aria_label",
+      "heading",
+      "body"
+    ],
+    "blockPolicy": "open"
+  },
+  "inputs": {
+    "desktopBundlePath": "figma/home-v1/source-manifest.json",
+    "mobileBundlePath": "figma/home-v1/source-manifest.json",
+    "sourceManifestPath": "figma/home-v1/source-manifest.json",
+    "sourceManifestSection": "why-pococo-section",
+    "starterSectionPath": "sections/kik-why-pococo-section.liquid",
+    "reviewManifestSection": "why-pococo-section",
+    "figmaSource": {
+      "desktop": {
+        "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+        "pageId": "11944",
+        "pageName": "Home V1",
+        "nodeId": "11928:7961",
+        "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-7961&m=dev"
+      },
+      "mobile": {
+        "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+        "pageId": "11944",
+        "pageName": "Home V1",
+        "nodeId": "11928:6992",
+        "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-6992&m=dev"
+      }
+    }
+  },
+  "brief": {
+    "goal": "Render a 4-card editorial feature grid below the reviews strip explaining why Pococo feels different at night. Desktop renders all 4 cards as equal-width columns in one row (grid-cols-4, gap-32); mobile stacks them into a single column (grid-cols-1, gap-24). Each card carries an image (aspect 296/187), a Satoshi h5 title, and a Funnel Sans body paragraph. Section heading is a centered h2 (max-width 592px) with a tertiary-color subheading.",
+    "content": {
+      "textSnippets": [
+        "Why Pococo Feels Different at Night",
+        "Designed to help you create a calmer room, reduce screen time, and ease into rest.",
+        "No App. No Phone. No Bedtime Scrolling.",
+        "Control everything with three simple buttons — power, rotate, and timer. No Wi‑Fi, no setup, no notifications.",
+        "Create a Softer Way to Unwind",
+        "Fill your ceiling and walls with slow-moving celestial scenes that help your room feel quieter and more peaceful.",
+        "Realistic Stars, Not Laser Dots",
+        "Pococo uses projection discs with detailed cosmic scenes, giving your room a more immersive night-sky experience.",
+        "Soft Light That Won’t Take Over the Room",
+        "Gentle, indirect projection creates ambiance without harsh brightness, making it easier to relax before sleep."
+      ],
+      "imageAssetPaths": [
+        "design-assets/images/why-pococo-desktop-image-e0cb6dbddb.png",
+        "design-assets/images/why-pococo-desktop-image-8dabe7654d.png",
+        "design-assets/images/why-pococo-desktop-image-cb7b3afce0.png",
+        "design-assets/images/why-pococo-desktop-image-0feabb8151.png"
+      ],
+      "callsToAction": [],
+      "primaryMessage": "Why Pococo Feels Different at Night",
+      "supportingMessages": [
+        "Designed to help you create a calmer room, reduce screen time, and ease into rest."
+      ],
+      "ctaLabels": []
+    },
+    "layout": {
+      "desktop": {
+        "canvas": { "width": 1600, "height": 674.1875 },
+        "rootNodeType": "frame",
+        "textNodeCount": 10,
+        "imageNodeCount": 4,
+        "layoutPattern": "centered-heading-with-four-column-card-grid",
+        "dominantTextPlacement": "center",
+        "dominantImagePlacement": "card-top",
+        "readingOrderTextRegions": [
+          { "name": "section_heading",  "x": 504, "y": 96,  "width": 592, "height": 43, "sourceNodeId": "11928:7963" },
+          { "name": "section_subhead",  "x": 504, "y": 155, "width": 592, "height": 24, "sourceNodeId": "11928:7964" },
+          { "name": "card1_title",      "x": 88,  "y": 446, "width": 296, "height": 52, "sourceNodeId": "11928:7969" },
+          { "name": "card1_body",       "x": 88,  "y": 506, "width": 296, "height": 72, "sourceNodeId": "11928:7970" },
+          { "name": "card2_title",      "x": 464, "y": 446, "width": 296, "height": 26, "sourceNodeId": "11928:7974" },
+          { "name": "card2_body",       "x": 464, "y": 480, "width": 296, "height": 72, "sourceNodeId": "11928:7975" },
+          { "name": "card3_title",      "x": 840, "y": 446, "width": 296, "height": 26, "sourceNodeId": "11928:7979" },
+          { "name": "card3_body",       "x": 840, "y": 480, "width": 296, "height": 72, "sourceNodeId": "11928:7980" },
+          { "name": "card4_title",      "x": 1216,"y": 446, "width": 296, "height": 52, "sourceNodeId": "11928:7984" },
+          { "name": "card4_body",       "x": 1216,"y": 506, "width": 296, "height": 72, "sourceNodeId": "11928:7985" }
+        ],
+        "topTextRegions": [
+          { "name": "section_heading", "x": 504, "y": 96, "width": 592, "height": 43, "sourceNodeId": "11928:7963" }
+        ],
+        "topImageRegions": [
+          { "name": "card1_image", "x": 88,  "y": 235, "width": 296, "height": 187, "sourceNodeId": "11928:7967" },
+          { "name": "card2_image", "x": 464, "y": 235, "width": 296, "height": 187, "sourceNodeId": "11928:7972" },
+          { "name": "card3_image", "x": 840, "y": 235, "width": 296, "height": 187, "sourceNodeId": "11928:7977" },
+          { "name": "card4_image", "x": 1216,"y": 235, "width": 296, "height": 187, "sourceNodeId": "11928:7982" }
+        ],
+        "primaryTextBox":  { "x": 504, "y": 96,  "width": 592, "height": 43,  "sourceNodeId": "11928:7963" },
+        "primaryImageBox": { "x": 88,  "y": 235, "width": 296, "height": 187, "sourceNodeId": "11928:7967" },
+        "assetPaths": [
+          "design-assets/images/why-pococo-desktop-image-e0cb6dbddb.png",
+          "design-assets/images/why-pococo-desktop-image-8dabe7654d.png",
+          "design-assets/images/why-pococo-desktop-image-cb7b3afce0.png",
+          "design-assets/images/why-pococo-desktop-image-0feabb8151.png"
+        ],
+        "backgroundFillPath": null,
+        "diagnostics": []
+      },
+      "mobile": {
+        "canvas": { "width": 414, "height": 1794.351318359375 },
+        "rootNodeType": "frame",
+        "textNodeCount": 10,
+        "imageNodeCount": 4,
+        "layoutPattern": "centered-heading-with-stacked-card-list",
+        "dominantTextPlacement": "center",
+        "dominantImagePlacement": "card-top",
+        "readingOrderTextRegions": [
+          { "name": "section_heading", "x": 16, "y": 48,    "width": 382, "height": 76, "sourceNodeId": "11928:6994" },
+          { "name": "section_subhead", "x": 16, "y": 132,   "width": 382, "height": 42, "sourceNodeId": "11928:6995" },
+          { "name": "card1_title",     "x": 32, "y": 467,   "width": 350, "height": 24, "sourceNodeId": "11928:7000" },
+          { "name": "card1_body",      "x": 32, "y": 499,   "width": 350, "height": 42, "sourceNodeId": "11928:7001" },
+          { "name": "card2_title",     "x": 32, "y": 834,   "width": 350, "height": 24, "sourceNodeId": "11928:7005" },
+          { "name": "card2_body",      "x": 32, "y": 866,   "width": 350, "height": 63, "sourceNodeId": "11928:7006" },
+          { "name": "card3_title",     "x": 32, "y": 1241,  "width": 350, "height": 24, "sourceNodeId": "11928:7010" },
+          { "name": "card3_body",      "x": 32, "y": 1273,  "width": 350, "height": 63, "sourceNodeId": "11928:7011" },
+          { "name": "card4_title",     "x": 32, "y": 1648,  "width": 350, "height": 48, "sourceNodeId": "11928:7015" },
+          { "name": "card4_body",      "x": 32, "y": 1704,  "width": 350, "height": 42, "sourceNodeId": "11928:7016" }
+        ],
+        "topTextRegions": [
+          { "name": "section_heading", "x": 16, "y": 48, "width": 382, "height": 76, "sourceNodeId": "11928:6994" }
+        ],
+        "topImageRegions": [
+          { "name": "card1_image", "x": 32, "y": 214,  "width": 350, "height": 221, "sourceNodeId": "11928:6998" },
+          { "name": "card2_image", "x": 32, "y": 581,  "width": 350, "height": 221, "sourceNodeId": "11928:7003" },
+          { "name": "card3_image", "x": 32, "y": 988,  "width": 350, "height": 221, "sourceNodeId": "11928:7008" },
+          { "name": "card4_image", "x": 32, "y": 1395, "width": 350, "height": 221, "sourceNodeId": "11928:7013" }
+        ],
+        "primaryTextBox":  { "x": 16, "y": 48,  "width": 382, "height": 76,  "sourceNodeId": "11928:6994" },
+        "primaryImageBox": { "x": 32, "y": 214, "width": 350, "height": 221, "sourceNodeId": "11928:6998" },
+        "assetPaths": [
+          "design-assets/images/why-pococo-mobile-image-383f844eaf.png",
+          "design-assets/images/why-pococo-mobile-image-05bf96f8c5.png",
+          "design-assets/images/why-pococo-mobile-image-874ba9a7a1.png",
+          "design-assets/images/why-pococo-mobile-image-36e698a00d.png"
+        ],
+        "backgroundFillPath": null,
+        "diagnostics": []
+      }
+    },
+    "blocks": [
+      { "blockIndex": 0, "blockType": "feature_card", "title": "No App. No Phone. No Bedtime Scrolling.", "imageDesktop": "design-assets/images/why-pococo-desktop-image-e0cb6dbddb.png", "imageMobile": "design-assets/images/why-pococo-mobile-image-383f844eaf.png" },
+      { "blockIndex": 1, "blockType": "feature_card", "title": "Create a Softer Way to Unwind",            "imageDesktop": "design-assets/images/why-pococo-desktop-image-8dabe7654d.png", "imageMobile": "design-assets/images/why-pococo-mobile-image-05bf96f8c5.png" },
+      { "blockIndex": 2, "blockType": "feature_card", "title": "Realistic Stars, Not Laser Dots",          "imageDesktop": "design-assets/images/why-pococo-desktop-image-cb7b3afce0.png", "imageMobile": "design-assets/images/why-pococo-mobile-image-874ba9a7a1.png" },
+      { "blockIndex": 3, "blockType": "feature_card", "title": "Soft Light That Won’t Take Over the Room", "imageDesktop": "design-assets/images/why-pococo-desktop-image-0feabb8151.png", "imageMobile": "design-assets/images/why-pococo-mobile-image-36e698a00d.png" }
+    ],
+    "source": {
+      "figma": {
+        "desktop": {
+          "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+          "pageId": "11944",
+          "pageName": "Home V1",
+          "nodeId": "11928:7961",
+          "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-7961&m=dev"
+        },
+        "mobile": {
+          "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+          "pageId": "11944",
+          "pageName": "Home V1",
+          "nodeId": "11928:6992",
+          "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-6992&m=dev"
+        }
+      },
+      "mcpInspections": [
+        {
+          "breakpoint": "desktop",
+          "rootNodeId": "11928:7961",
+          "callType": "get_metadata",
+          "capturedAt": "2026-05-09T00:00:00Z",
+          "childNodeIds": [
+            "11928:7961","11928:7962","11928:7963","11928:7964","11928:7965",
+            "11928:7966","11928:7967","11928:7968","11928:7969","11928:7970",
+            "11928:7971","11928:7972","11928:7973","11928:7974","11928:7975",
+            "11928:7976","11928:7977","11928:7978","11928:7979","11928:7980",
+            "11928:7981","11928:7982","11928:7983","11928:7984","11928:7985"
+          ]
+        },
+        {
+          "breakpoint": "desktop",
+          "rootNodeId": "11928:7961",
+          "callType": "get_design_context",
+          "capturedAt": "2026-05-09T00:01:00Z",
+          "childNodeIds": [
+            "11928:7961","11928:7962","11928:7963","11928:7964","11928:7965",
+            "11928:7966","11928:7967","11928:7968","11928:7969","11928:7970",
+            "11928:7971","11928:7972","11928:7973","11928:7974","11928:7975",
+            "11928:7976","11928:7977","11928:7978","11928:7979","11928:7980",
+            "11928:7981","11928:7982","11928:7983","11928:7984","11928:7985"
+          ]
+        },
+        {
+          "breakpoint": "mobile",
+          "rootNodeId": "11928:6992",
+          "callType": "get_metadata",
+          "capturedAt": "2026-05-09T00:00:00Z",
+          "childNodeIds": [
+            "11928:6992","11928:6993","11928:6994","11928:6995","11928:6996",
+            "11928:6997","11928:6998","11928:6999","11928:7000","11928:7001",
+            "11928:7002","11928:7003","11928:7004","11928:7005","11928:7006",
+            "11928:7007","11928:7008","11928:7009","11928:7010","11928:7011",
+            "11928:7012","11928:7013","11928:7014","11928:7015","11928:7016"
+          ]
+        },
+        {
+          "breakpoint": "mobile",
+          "rootNodeId": "11928:6992",
+          "callType": "get_design_context",
+          "capturedAt": "2026-05-09T00:01:00Z",
+          "childNodeIds": [
+            "11928:6992","11928:6993","11928:6994","11928:6995","11928:6996",
+            "11928:6997","11928:6998","11928:6999","11928:7000","11928:7001",
+            "11928:7002","11928:7003","11928:7004","11928:7005","11928:7006",
+            "11928:7007","11928:7008","11928:7009","11928:7010","11928:7011",
+            "11928:7012","11928:7013","11928:7014","11928:7015","11928:7016"
+          ]
+        }
+      ]
+    },
+    "diagnostics": []
+  }
+}

@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@source "../layout";
+@source "../sections";
+@source "../snippets";
+@source "../templates";
+@source "../src";
+
+@layer base {
+  body {
+    margin: 0;
+  }
+}
+
+:root {
+  --kik-font-family-sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --kik-text-line-height-tight: 1.2;
+  --kik-text-line-height-body: 1.6;
+  --kik-text-weight-semibold: 600;
+  --kik-text-weight-regular: 400;
+  --kik-container-max-width: 1600px;
+
+  /* design tokens */
+  --kik-color-action-primary: #002b4e;
+  --kik-color-action-primary-hover: #ffffff;
+  --kik-color-action-secondary: #ffffff;
+  --kik-color-action-secondary-hover: #002b4e;
+  --kik-color-bg-alt-2: #e8e8e8;
+  --kik-color-bg-alt-white---50: #ffffff80;
+  --kik-color-bg-discount: #db3535;
+  --kik-color-bg-discount-alt: #fbebeb;
+  --kik-color-bg-inverse: #002b4e;
+  --kik-color-bg-inverse---10: #f2f4f6;
+  --kik-color-bg-page: #fefaf2;
+  --kik-color-bg-star: #fecf84;
+  --kik-color-bg-surface: #ffffff;
+  --kik-color-border-default: #000000;
+  --kik-color-border-subtle: #e8e8e8;
+  --kik-color-semantic-error: #db3535;
+  --kik-color-semantic-success: #4ad55a;
+  --kik-color-semantic-warning: #ebdb29;
+  --kik-color-text-disable: #ccd3d9;
+  --kik-color-text-inverse: #ffffff;
+  --kik-color-text-primary: #002b4e;
+  --kik-color-text-secondary: #323232;
+  --kik-color-text-tertiary: #616568;
+  --kik-radius-2xl: 40px;
+  --kik-radius-lg: 12px;
+  --kik-radius-md: 8px;
+  --kik-radius-none: 0px;
+  --kik-radius-pill: 100px;
+  --kik-radius-sm: 4px;
+  --kik-radius-xl: 24px;
+  --kik-radius-xsm: 2px;
+  --kik-spacing-12: 12px;
+  --kik-spacing-16: 16px;
+  --kik-spacing-2: 2px;
+  --kik-spacing-24: 24px;
+  --kik-spacing-32: 32px;
+  --kik-spacing-4: 4px;
+  --kik-spacing-40: 40px;
+  --kik-spacing-8: 8px;
+  --kik-spacing-lg: 16px;
+  --kik-spacing-md: 8px;
+  --kik-spacing-page-default: 16px;
+  --kik-spacing-page-full: 0px;
+  --kik-spacing-page-semi-full: 16px;
+  --kik-spacing-section-lg: 48px;
+  --kik-spacing-section-md: 48px;
+  --kik-spacing-section-sm: 32px;
+  --kik-spacing-sm: 4px;
+  --kik-spacing-xl: 24px;
+  --kik-text-font-body: Funnel Sans;
+  --kik-text-font-heading: Satoshi;
+  --kik-text-size-body-lg: 16px;
+  --kik-text-size-body-md: 14px;
+  --kik-text-size-body-sm: 13px;
+  --kik-text-size-body-xsm: 11px;
+  --kik-text-size-h1: 36px;
+  --kik-text-size-h2: 32px;
+  --kik-text-size-h3: 28px;
+  --kik-text-size-h4: 22px;
+  --kik-text-size-h5: 20px;
+  --kik-text-size-h6: 18px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --kik-radius-lg: 16px;
+    --kik-radius-md: 12px;
+    --kik-radius-sm: 8px;
+    --kik-radius-xl: 32px;
+    --kik-radius-xsm: 4px;
+    --kik-spacing-lg: 24px;
+    --kik-spacing-md: 16px;
+    --kik-spacing-page-default: 64px;
+    --kik-spacing-page-semi-full: 20px;
+    --kik-spacing-section-lg: 96px;
+    --kik-spacing-section-md: 64px;
+    --kik-spacing-section-sm: 48px;
+    --kik-spacing-sm: 8px;
+    --kik-spacing-xl: 32px;
+    --kik-text-size-body-lg: 18px;
+    --kik-text-size-body-md: 16px;
+    --kik-text-size-body-sm: 14px;
+    --kik-text-size-body-xsm: 12px;
+    --kik-text-size-h1: 44px;
+    --kik-text-size-h2: 36px;
+    --kik-text-size-h3: 32px;
+    --kik-text-size-h4: 28px;
+    --kik-text-size-h5: 22px;
+    --kik-text-size-h6: 20px;
+  }
+}
+
+@theme inline {
+  --font-sans: var(--kik-text-font-body);
+  --font-heading: var(--kik-text-font-heading);
+
+  --text-body: var(--kik-text-size-body-md);
+  --text-body--line-height: var(--kik-text-line-height-body);
+  --text-body--font-weight: var(--kik-text-weight-regular);
+
+  --text-h1: var(--kik-text-size-h1);
+  --text-h1--line-height: var(--kik-text-line-height-tight);
+  --text-h1--font-weight: var(--kik-text-weight-semibold);
+
+  --text-h2: var(--kik-text-size-h2);
+  --text-h2--line-height: var(--kik-text-line-height-tight);
+  --text-h2--font-weight: var(--kik-text-weight-semibold);
+
+  --text-h3: var(--kik-text-size-h3);
+  --text-h3--line-height: var(--kik-text-line-height-tight);
+  --text-h3--font-weight: var(--kik-text-weight-semibold);
+
+  --text-h4: var(--kik-text-size-h4);
+  --text-h4--line-height: var(--kik-text-line-height-tight);
+  --text-h4--font-weight: var(--kik-text-weight-semibold);
+
+  --text-h5: var(--kik-text-size-h5);
+  --text-h5--line-height: var(--kik-text-line-height-tight);
+  --text-h5--font-weight: var(--kik-text-weight-semibold);
+
+  --text-h6: var(--kik-text-size-h6);
+  --text-h6--line-height: var(--kik-text-line-height-tight);
+  --text-h6--font-weight: var(--kik-text-weight-semibold);
+
+  --text-body-lg: var(--kik-text-size-body-lg);
+  --text-body-lg--line-height: var(--kik-text-line-height-body);
+  --text-body-lg--font-weight: var(--kik-text-weight-regular);
+
+  --text-body-md: var(--kik-text-size-body-md);
+  --text-body-md--line-height: var(--kik-text-line-height-body);
+  --text-body-md--font-weight: var(--kik-text-weight-regular);
+
+  --text-body-sm: var(--kik-text-size-body-sm);
+  --text-body-sm--line-height: var(--kik-text-line-height-body);
+  --text-body-sm--font-weight: var(--kik-text-weight-regular);
+
+  --text-body-xsm: var(--kik-text-size-body-xsm);
+  --text-body-xsm--line-height: var(--kik-text-line-height-body);
+  --text-body-xsm--font-weight: var(--kik-text-weight-regular);
+
+  --color-page: var(--kik-color-bg-page);
+  --color-surface: var(--kik-color-bg-surface);
+  --color-alt-2: var(--kik-color-bg-alt-2);
+  --color-surface-inverse: var(--kik-color-bg-inverse);
+  --color-primary: var(--kik-color-text-primary);
+  --color-secondary: var(--kik-color-text-secondary);
+  --color-tertiary: var(--kik-color-text-tertiary);
+  --color-disable: var(--kik-color-text-disable);
+  --color-inverse: var(--kik-color-text-inverse);
+  --color-star: var(--kik-color-bg-star);
+  --color-border-subtle: var(--kik-color-border-subtle);
+  --color-border-default: var(--kik-color-border-default);
+  --color-action-primary: var(--kik-color-action-primary);
+  --color-action-primary-hover: var(--kik-color-action-primary-hover);
+  --color-action-secondary: var(--kik-color-action-secondary);
+  --color-action-secondary-hover: var(--kik-color-action-secondary-hover);
+  --color-semantic-error: var(--kik-color-semantic-error);
+  --color-semantic-success: var(--kik-color-semantic-success);
+  --color-semantic-warning: var(--kik-color-semantic-warning);
+
+  --spacing-0: 0;
+  --spacing-page: var(--kik-spacing-page-default);
+  --spacing-page-default: var(--kik-spacing-page-default);
+  --spacing-page-semi-full: var(--kik-spacing-page-semi-full);
+  --spacing-page-full: var(--kik-spacing-page-full);
+  --spacing-section-sm: var(--kik-spacing-section-sm);
+  --spacing-section-md: var(--kik-spacing-section-md);
+  --spacing-section-lg: var(--kik-spacing-section-lg);
+  --spacing-sm: var(--kik-spacing-sm);
+  --spacing-md: var(--kik-spacing-md);
+  --spacing-lg: var(--kik-spacing-lg);
+  --spacing-xl: var(--kik-spacing-xl);
+  --spacing-2: var(--kik-spacing-2);
+  --spacing-4: var(--kik-spacing-4);
+  --spacing-8: var(--kik-spacing-8);
+  --spacing-12: var(--kik-spacing-12);
+  --spacing-16: var(--kik-spacing-16);
+  --spacing-24: var(--kik-spacing-24);
+  --spacing-32: var(--kik-spacing-32);
+  --spacing-40: var(--kik-spacing-40);
+  --spacing-48: var(--kik-spacing-section-sm);
+  --spacing-64: var(--kik-spacing-section-md);
+  --spacing-96: var(--kik-spacing-section-lg);
+
+  --radius-0: var(--kik-radius-none);
+  --radius-none: var(--kik-radius-none);
+  --radius-xsm: var(--kik-radius-xsm);
+  --radius-sm: var(--kik-radius-sm);
+  --radius-md: var(--kik-radius-md);
+  --radius-lg: var(--kik-radius-lg);
+  --radius-xl: var(--kik-radius-xl);
+  --radius-2xl: var(--kik-radius-2xl);
+  --radius-pill: var(--kik-radius-pill);
+  --radius-10: var(--kik-radius-sm);
+  --radius-16: var(--kik-radius-md);
+  --radius-24: var(--kik-radius-lg);
+  --radius-32: var(--kik-radius-xl);
+  --radius-40: var(--kik-radius-2xl);
+  --radius-100: var(--kik-radius-pill);
+}
+
+@layer components {
+  .kik-component {
+    font-family: var(--kik-text-font-body);
+  }
+
+  .kik-container {
+    box-sizing: border-box;
+    width: min(100%, var(--kik-container-max-width));
+    margin-inline: auto;
+    padding-inline: var(--kik-spacing-page-default);
+  }
+}

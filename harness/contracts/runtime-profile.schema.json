@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/runtime-profile.schema.json",
+  "title": "Theme Harness Runtime Profile",
+  "type": "object",
+  "required": [
+    "pageCount",
+    "pages"
+  ],
+  "properties": {
+    "pageCount": {
+      "type": "integer"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "pageKey",
+          "captureCount",
+          "captures"
+        ]
+      }
+    }
+  }
+}

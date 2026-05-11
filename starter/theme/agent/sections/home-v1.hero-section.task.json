@@ -1,0 +1,282 @@
+{
+  "pageKey": "home-v1",
+  "profile": "kik",
+  "surfaceType": "page",
+  "sectionId": "hero-section",
+  "sectionKey": "home-v1.hero-section",
+  "templateSectionId": "hero_section",
+  "expectedResultPath": "agent/results/home-v1.hero-section.result.json",
+  "implementationTarget": {
+    "sectionFile": "sections/kik-hero-section.liquid",
+    "snippetFiles": [],
+    "previewTemplate": "templates/index.kik-section-home-v1-hero-section.json"
+  },
+  "implementationPolicy": {
+    "pattern": "carousel",
+    "repeatedContentSource": "blocks",
+    "defaultImplementation": "swiper",
+    "allowedImplementationExceptions": [],
+    "themeCodeReuse": "avoid"
+  },
+  "fidelity": {
+    "mode": "css-1-to-1",
+    "ignoreImageContent": false,
+    "requireExplicitLayoutReview": true
+  },
+  "templateContract": {
+    "sectionType": "kik-hero-section",
+    "allowedSettingIds": [
+      "aria_label",
+      "autoplay_delay",
+      "image",
+      "image_mobile",
+      "heading",
+      "body",
+      "cta_label",
+      "cta_url"
+    ],
+    "blockPolicy": "open"
+  },
+  "inputs": {
+    "desktopBundlePath": "figma/home-v1/source-manifest.json",
+    "mobileBundlePath": "figma/home-v1/source-manifest.json",
+    "sourceManifestPath": "figma/home-v1/source-manifest.json",
+    "sourceManifestSection": "hero-section",
+    "starterSectionPath": "sections/kik-hero-section.liquid",
+    "reviewManifestSection": "hero-section",
+    "figmaSource": {
+      "desktop": {
+        "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+        "pageId": "11944",
+        "pageName": "Home V1",
+        "nodeId": "11928:8842",
+        "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-8842&m=dev"
+      },
+      "mobile": {
+        "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+        "pageId": "11944",
+        "pageName": "Home V1",
+        "nodeId": "11928:7873",
+        "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-7873&m=dev"
+      }
+    }
+  },
+  "brief": {
+    "goal": "Render a 3-slide Swiper hero carousel where every slide may share the same image (per harness/notes/home-v1.json#sections/hero-section/agentPrompt). Desktop pins content to the left within a 569px column; mobile stacks content centered with full-width bottom-anchored layout. Pagination dots appear bottom-right on desktop and centered below content on mobile. Bind block image_picker settings to Shopify Files-uploaded REST hero assets.",
+    "content": {
+      "textSnippets": [
+        "May Day Gift with Purchase",
+        "Create a calming galaxy room for better sleep — and get up to 8 projector discs free.",
+        "Shop Galaxy Projector"
+      ],
+      "imageAssetPaths": [
+        "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+        "design-assets/images/hero-desktop-hero-section-1e51ce465c.png",
+        "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png"
+      ],
+      "callsToAction": ["Shop Galaxy Projector"],
+      "primaryMessage": "May Day Gift with Purchase",
+      "supportingMessages": [
+        "Create a calming galaxy room for better sleep — and get up to 8 projector discs free."
+      ],
+      "ctaLabels": ["Shop Galaxy Projector"]
+    },
+    "layout": {
+      "desktop": {
+        "preview": {
+          "path": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+          "pixelWidth": 1600,
+          "pixelHeight": 700
+        },
+        "canvas": { "width": 1600, "height": 700 },
+        "rootNodeType": "frame",
+        "textNodeCount": 3,
+        "imageNodeCount": 2,
+        "layoutPattern": "overlay",
+        "dominantTextPlacement": "left",
+        "dominantImagePlacement": "full-bleed",
+        "readingOrderTextRegions": [
+          { "name": "heading", "x": 64, "y": 226, "width": 569, "height": 106, "sourceNodeId": "11928:8845" },
+          { "name": "body", "x": 64, "y": 348, "width": 569, "height": 54, "sourceNodeId": "11928:8846" },
+          { "name": "cta_label", "x": 64, "y": 426, "width": 209, "height": 48, "sourceNodeId": "11928:8847" }
+        ],
+        "topTextRegions": [
+          { "name": "heading", "x": 64, "y": 226, "width": 569, "height": 106, "sourceNodeId": "11928:8845" },
+          { "name": "body", "x": 64, "y": 348, "width": 569, "height": 54, "sourceNodeId": "11928:8846" }
+        ],
+        "topImageRegions": [
+          { "name": "background_fill", "x": 0, "y": 0, "width": 1600, "height": 700, "sourceNodeId": "11928:8842", "assetPath": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png" }
+        ],
+        "primaryTextBox": { "x": 64, "y": 226, "width": 569, "height": 106 },
+        "primaryImageBox": { "x": 0, "y": 0, "width": 1600, "height": 700 },
+        "assetPaths": [
+          "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+          "design-assets/images/hero-desktop-hero-section-1e51ce465c.png"
+        ],
+        "backgroundFillPath": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+        "diagnostics": [
+          {
+            "code": "FIGMA_METADATA_SHALLOW",
+            "severity": "info",
+            "breakpoint": "desktop",
+            "message": "get_metadata for 11928:8842 returned the root frame with no child subtree. Per skills/theme/figma-first/SKILL.md, child coordinates were derived from the same breakpoint's get_design_context response and are recorded as a documented fallback."
+          }
+        ]
+      },
+      "mobile": {
+        "preview": {
+          "path": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png",
+          "pixelWidth": 414,
+          "pixelHeight": 670
+        },
+        "canvas": { "width": 414, "height": 670 },
+        "rootNodeType": "frame",
+        "textNodeCount": 3,
+        "imageNodeCount": 1,
+        "layoutPattern": "overlay",
+        "dominantTextPlacement": "bottom",
+        "dominantImagePlacement": "full-bleed",
+        "readingOrderTextRegions": [
+          { "name": "heading", "x": 16, "y": 359, "width": 382, "height": 86, "sourceNodeId": "11928:7876" },
+          { "name": "body", "x": 16, "y": 461, "width": 382, "height": 72, "sourceNodeId": "11928:7877" },
+          { "name": "cta_label", "x": 16, "y": 557, "width": 196, "height": 45, "sourceNodeId": "11928:7878" }
+        ],
+        "topTextRegions": [
+          { "name": "heading", "x": 16, "y": 359, "width": 382, "height": 86, "sourceNodeId": "11928:7876" },
+          { "name": "body", "x": 16, "y": 461, "width": 382, "height": 72, "sourceNodeId": "11928:7877" }
+        ],
+        "topImageRegions": [
+          { "name": "background_fill", "x": 0, "y": 0, "width": 414, "height": 670, "sourceNodeId": "11928:7873", "assetPath": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png" }
+        ],
+        "primaryTextBox": { "x": 16, "y": 359, "width": 382, "height": 86 },
+        "primaryImageBox": { "x": 0, "y": 0, "width": 414, "height": 670 },
+        "assetPaths": [
+          "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png"
+        ],
+        "backgroundFillPath": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png",
+        "diagnostics": [
+          {
+            "code": "FIGMA_METADATA_SHALLOW",
+            "severity": "info",
+            "breakpoint": "mobile",
+            "message": "get_metadata for 11928:7873 returned the root frame with no child subtree. Per skills/theme/figma-first/SKILL.md, child coordinates were derived from the same breakpoint's get_design_context response and are recorded as a documented fallback."
+          }
+        ]
+      }
+    },
+    "blocks": [
+      {
+        "blockIndex": 0,
+        "blockType": "slide",
+        "imageDesktop": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+        "imageMobile": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png",
+        "heading": "May Day Gift with Purchase",
+        "body": "Create a calming galaxy room for better sleep — and get up to 8 projector discs free.",
+        "ctaLabel": "Shop Galaxy Projector",
+        "ctaUrl": null
+      },
+      {
+        "blockIndex": 1,
+        "blockType": "slide",
+        "imageDesktop": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+        "imageMobile": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png",
+        "heading": "May Day Gift with Purchase",
+        "body": "Create a calming galaxy room for better sleep — and get up to 8 projector discs free.",
+        "ctaLabel": "Shop Galaxy Projector",
+        "ctaUrl": null
+      },
+      {
+        "blockIndex": 2,
+        "blockType": "slide",
+        "imageDesktop": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+        "imageMobile": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png",
+        "heading": "May Day Gift with Purchase",
+        "body": "Create a calming galaxy room for better sleep — and get up to 8 projector discs free.",
+        "ctaLabel": "Shop Galaxy Projector",
+        "ctaUrl": null
+      }
+    ],
+    "source": {
+      "figma": {
+        "desktop": {
+          "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+          "pageId": "11944",
+          "pageName": "Home V1",
+          "nodeId": "11928:8842",
+          "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-8842&m=dev"
+        },
+        "mobile": {
+          "fileKey": "8ZeaG0uv832dg4Gn7HonGC",
+          "pageId": "11944",
+          "pageName": "Home V1",
+          "nodeId": "11928:7873",
+          "nodeUrl": "https://www.figma.com/design/8ZeaG0uv832dg4Gn7HonGC/Pococo?node-id=11928-7873&m=dev"
+        }
+      },
+      "mcpInspections": [
+        {
+          "breakpoint": "desktop",
+          "rootNodeId": "11928:8842",
+          "callType": "get_metadata",
+          "capturedAt": "2026-05-08T08:02:00Z",
+          "childNodeIds": ["11928:8842"]
+        },
+        {
+          "breakpoint": "desktop",
+          "rootNodeId": "11928:8842",
+          "callType": "get_design_context",
+          "capturedAt": "2026-05-08T08:02:30Z",
+          "childNodeIds": [
+            "11928:8842",
+            "11928:8843",
+            "11928:8844",
+            "11928:8845",
+            "11928:8846",
+            "11928:8847",
+            "11928:8848",
+            "11928:8849",
+            "11928:8850",
+            "11928:8851"
+          ]
+        },
+        {
+          "breakpoint": "mobile",
+          "rootNodeId": "11928:7873",
+          "callType": "get_metadata",
+          "capturedAt": "2026-05-08T08:02:00Z",
+          "childNodeIds": ["11928:7873"]
+        },
+        {
+          "breakpoint": "mobile",
+          "rootNodeId": "11928:7873",
+          "callType": "get_design_context",
+          "capturedAt": "2026-05-08T08:02:30Z",
+          "childNodeIds": [
+            "11928:7873",
+            "11928:7874",
+            "11928:7875",
+            "11928:7876",
+            "11928:7877",
+            "11928:7878",
+            "11928:7879",
+            "11928:7880",
+            "11928:7881",
+            "11928:7882"
+          ]
+        }
+      ]
+    },
+    "diagnostics": [
+      {
+        "code": "FIGMA_METADATA_SHALLOW",
+        "severity": "info",
+        "message": "get_metadata returned shallow root frames for both breakpoints (no child subtree). Brief coordinates were filled from get_design_context per the documented figma-first fallback."
+      },
+      {
+        "code": "SECTION_NOTES_OVERRIDE",
+        "severity": "info",
+        "message": "harness/notes/home-v1.json#sections/hero-section overrode the source-manifest theme-section classification with implementationPolicy.pattern=carousel and explicitly authorized rendering all three slides with the same image."
+      }
+    ]
+  }
+}

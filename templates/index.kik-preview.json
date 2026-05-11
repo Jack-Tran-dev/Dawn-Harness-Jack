@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "kik_preview_placeholder": {
+      "type": "kik-preview-placeholder",
+      "settings": {}
+    }
+  },
+  "order": [
+    "kik_preview_placeholder"
+  ]
+}

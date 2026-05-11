@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -eu
+
+repo_root="$(git rev-parse --show-toplevel)"
+
+cd "$repo_root"
+
+if [ ! -f "$repo_root/.shopify-theme-harness/scaffold.json" ]; then
+  echo "Skipping page acceptance because this is not an installed harness project."
+  exit 0
+fi
+
+echo "Running page acceptance gate..."
+node ./scripts/agent/assert-page-acceptance.mjs "$repo_root" "$repo_root/starter/theme"

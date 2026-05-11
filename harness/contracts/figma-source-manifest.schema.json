@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/figma-source-manifest.schema.json",
+  "title": "Figma Source Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "manifestType",
+    "createdAt",
+    "pageKey",
+    "documentName",
+    "figmaPage",
+    "desktopFrame",
+    "mobileFrame",
+    "workflow",
+    "harnessTarget",
+    "tokenSource",
+    "pairingMode",
+    "sectionTreeHash",
+    "sectionIds",
+    "sections",
+    "agentCapabilities"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "manifestType": {
+      "type": "string",
+      "const": "figma-source-manifest"
+    },
+    "createdAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pageKey": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Page-key for this source manifest. Must equal the page-key segment of the manifest's filesystem path (figma/<pageKey>/source-manifest.json) and the active feat/<pageKey> branch."
+    },
+    "documentName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "figmaPage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "desktopFrame": {
+      "$ref": "#/$defs/frameRef"
+    },
+    "mobileFrame": {
+      "$ref": "#/$defs/frameRef"
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pageInitializationSkill",
+        "deliveryScope",
+        "acceptanceScope",
+        "visualBaselineSource",
+        "evidenceManifestPath"
+      ],
+      "properties": {
+        "pageInitializationSkill": {
+          "type": "string",
+          "const": "skills/theme/initialize-page-from-figma/SKILL.md"
+        },
+        "deliveryScope": {
+          "type": "string",
+          "const": "section-only"
+        },
+        "acceptanceScope": {
+          "type": "string",
+          "const": "section"
+        },
+        "visualBaselineSource": {
+          "type": "string",
+          "const": "figma-rest-asset-manifest"
+        },
+        "evidenceManifestPath": {
+          "type": "string",
+          "const": "design-assets/manifest.json"
+        }
+      }
+    },
+    "harnessTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "themeRoot", "harnessRoot", "starterRoot", "requiredThemeFiles"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "const": "installed-theme"
+        },
+        "themeRoot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "harnessRoot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "starterRoot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requiredThemeFiles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "tokenSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "rawPath", "writePolicy", "syncCommand"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "const": "figma-variables2css"
+        },
+        "rawPath": {
+          "type": "string",
+          "const": "design-tokens/figma.variables2css.css"
+        },
+        "writePolicy": {
+          "type": "string",
+          "const": "manual-if-missing"
+        },
+        "syncCommand": {
+          "type": "string",
+          "const": "make sync-kik-tokens TOKENS=design-tokens/figma.variables2css.css"
+        }
+      }
+    },
+    "pairingMode": {
+      "type": "string",
+      "enum": ["section-id", "order-fallback", "unpaired"]
+    },
+    "pairingConfidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "sectionTreeHash": {
+      "type": "string",
+      "pattern": "^sha256:.+"
+    },
+    "sectionIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/section"
+      }
+    },
+    "agentCapabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "figmaMcpRequired",
+        "shopContextRecommended",
+        "imageUploadAgentOwned",
+        "assetExtractionDeveloperOwned"
+      ],
+      "properties": {
+        "figmaMcpRequired": {
+          "type": "boolean",
+          "const": true
+        },
+        "shopContextRecommended": {
+          "type": "boolean",
+          "const": true
+        },
+        "imageUploadAgentOwned": {
+          "type": "boolean",
+          "const": true
+        },
+        "assetExtractionDeveloperOwned": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  },
+  "$defs": {
+    "figmaSourceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fileKey", "pageId", "pageName", "nodeId", "nodeUrl"],
+      "properties": {
+        "fileKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pageId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pageName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodeUrl": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "nodeDimensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        }
+      }
+    },
+    "frameRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "canvas"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "figma": {
+          "$ref": "#/$defs/figmaSourceRef"
+        },
+        "canvas": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["width", "height"],
+          "properties": {
+            "width": {
+              "type": "number"
+            },
+            "height": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    },
+    "implementationFamily": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key", "basis", "confidence"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "enum": ["explicit-section-id"]
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"]
+        }
+      }
+    },
+    "section": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "order",
+        "slotIndex",
+        "suggestedHandle",
+        "sectionType",
+        "dataSourceKind",
+        "skillRouting",
+        "source"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "slotIndex": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "suggestedHandle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sectionType": {
+          "type": "string",
+          "enum": [
+            "theme-section",
+            "product-data-section",
+            "collection-data-section",
+            "article-data-section",
+            "metaobject-data-section",
+            "global-section",
+            "cart-section"
+          ]
+        },
+        "dataSourceKind": {
+          "type": "string",
+          "enum": ["none", "product", "collection", "article", "metaobject"]
+        },
+        "skillRouting": {
+          "$ref": "#/$defs/skillRouting"
+        },
+        "implementationFamily": {
+          "$ref": "#/$defs/implementationFamily"
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["desktop", "mobile"],
+          "properties": {
+            "desktop": {
+              "$ref": "#/$defs/sectionNodeRef"
+            },
+            "mobile": {
+              "$ref": "#/$defs/sectionNodeRef"
+            }
+          }
+        }
+      }
+    },
+    "skillRouting": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommendedSkill", "reason"],
+      "properties": {
+        "recommendedSkill": {
+          "type": "string",
+          "enum": [
+            "skills/theme/implement-section-from-figma/SKILL.md",
+            "skills/theme/implement-shopify-data-section-from-figma/SKILL.md",
+            "skills/theme/kik-shopify-figma-section/SKILL.md"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sectionNodeRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["nodeId", "nodeName", "declaredSectionId", "dimensions"],
+      "properties": {
+        "nodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "nodeName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "declaredSectionId": {
+          "type": ["string", "null"]
+        },
+        "figma": {
+          "$ref": "#/$defs/figmaSourceRef"
+        },
+        "dimensions": {
+          "$ref": "#/$defs/nodeDimensions"
+        }
+      }
+    }
+  }
+}

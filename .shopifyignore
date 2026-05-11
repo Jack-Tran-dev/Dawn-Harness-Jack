@@ -1,0 +1,13 @@
+docs/*
+node_modules/*
+output/*
+src/*
+tmp/*
+package.json
+pnpm-lock.yaml
+postcss.config.mjs
+tailwind.config.js
+vite.config.mjs
+shopify.theme.toml
+templates/kik-theme-init/*
+templates/kik-theme-init/.shopifyignore

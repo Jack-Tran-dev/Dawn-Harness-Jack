@@ -1,0 +1,216 @@
+{%- liquid
+  assign aria_label = section.settings.aria_label | default: 'Why Pococo'
+  assign heading = section.settings.heading | default: 'Why Pococo Feels Different at Night'
+  assign body = section.settings.body | default: 'Designed to help you create a calmer room, reduce screen time, and ease into rest.'
+  assign cards = section.blocks
+  assign card_regions = 'card-1|11928:7966 11928:6997,card-2|11928:7971 11928:7002,card-3|11928:7976 11928:7007,card-4|11928:7981 11928:7012' | split: ','
+  assign image_regions = 'image-1|11928:7967 11928:6998,image-2|11928:7972 11928:7003,image-3|11928:7977 11928:7008,image-4|11928:7982 11928:7013' | split: ','
+  assign content_regions = 'content-1|11928:7968 11928:6999,content-2|11928:7973 11928:7004,content-3|11928:7978 11928:7009,content-4|11928:7983 11928:7014' | split: ','
+  assign title_regions = 'title-1|11928:7969 11928:7000,title-2|11928:7974 11928:7005,title-3|11928:7979 11928:7010,title-4|11928:7984 11928:7015' | split: ','
+  assign body_regions = 'body-1|11928:7970 11928:7001,body-2|11928:7975 11928:7006,body-3|11928:7980 11928:7011,body-4|11928:7985 11928:7016' | split: ','
+-%}
+<section
+  class="kik-component bg-page text-primary px-page py-section-lg w-full"
+  aria-label="{{ aria_label | escape }}"
+  data-kik-region="11928:7961 11928:6992"
+>
+  <div class="mx-auto flex w-full max-w-[var(--kik-container-max-width)] flex-col items-center gap-xl">
+    <div
+      class="flex w-full max-w-[592px] flex-col items-center gap-md text-center"
+      data-kik-region="11928:7962 11928:6993"
+    >
+      <h2
+        class="m-0 w-full font-heading text-h2 leading-tight tracking-[-0.02em]"
+        data-kik-region="11928:7963 11928:6994"
+      >{{ heading | escape }}</h2>
+      <p
+        class="m-0 w-full font-sans text-body-md leading-relaxed text-tertiary"
+        data-kik-region="11928:7964 11928:6995"
+      >{{ body | escape }}</p>
+    </div>
+
+    <div
+      class="flex w-full flex-col items-stretch gap-xl md:flex-row"
+      data-kik-region="11928:7965 11928:6996"
+    >
+      {%- for block in cards -%}
+        {%- assign card_idx = forloop.index0 -%}
+        {%- assign card_region = card_regions[card_idx] | split: '|' | last | default: '' -%}
+        {%- assign image_region = image_regions[card_idx] | split: '|' | last | default: '' -%}
+        {%- assign content_region = content_regions[card_idx] | split: '|' | last | default: '' -%}
+        {%- assign title_region = title_regions[card_idx] | split: '|' | last | default: '' -%}
+        {%- assign body_region = body_regions[card_idx] | split: '|' | last | default: '' -%}
+        {%- assign card_image = block.settings.image -%}
+        {%- assign card_image_mobile = block.settings.image_mobile -%}
+        {%- assign card_alt = block.settings.alt | default: card_image.alt | default: '' -%}
+        <article
+          class="flex w-full min-w-0 flex-col items-start gap-lg rounded-[12px] bg-surface p-lg md:flex-1 md:basis-0"
+          {% if card_region != blank %}data-kik-region="{{ card_region }}"{% endif %}
+          {{ block.shopify_attributes }}
+        >
+          <div
+            class="relative aspect-[296/187] w-full overflow-hidden rounded-md bg-alt-2"
+            {% if image_region != blank %}data-kik-region="{{ image_region }}"{% endif %}
+          >
+            {%- if card_image != blank -%}
+              {%- assign desktop_src = card_image | image_url: width: 600 -%}
+              {%- if card_image_mobile != blank -%}
+                {%- assign mobile_src = card_image_mobile | image_url: width: 700 -%}
+              {%- else -%}
+                {%- assign mobile_src = card_image | image_url: width: 700 -%}
+              {%- endif -%}
+              <picture>
+                <source media="(min-width: 768px)" srcset="{{ desktop_src }}">
+                <img
+                  src="{{ mobile_src }}"
+                  alt="{{ card_alt | escape }}"
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover"
+                  width="{{ card_image.width }}"
+                  height="{{ card_image.height }}"
+                >
+              </picture>
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'absolute inset-0 h-full w-full object-cover' }}
+            {%- endif -%}
+          </div>
+          <div
+            class="flex w-full flex-col items-start gap-8"
+            {% if content_region != blank %}data-kik-region="{{ content_region }}"{% endif %}
+          >
+            {%- if block.settings.title != blank -%}
+              <h3
+                class="m-0 w-full font-heading text-h5 leading-tight tracking-[-0.02em]"
+                {% if title_region != blank %}data-kik-region="{{ title_region }}"{% endif %}
+              >{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            {%- if block.settings.body != blank -%}
+              <p
+                class="m-0 w-full font-sans text-body-md leading-relaxed text-tertiary"
+                {% if body_region != blank %}data-kik-region="{{ body_region }}"{% endif %}
+              >{{ block.settings.body | escape }}</p>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Pococo (Kik)",
+  "tag": "section",
+  "class": "kik-section kik-why-pococo-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Section ARIA label",
+      "default": "Why Pococo"
+    },
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Pococo Feels Different at Night"
+    },
+    {
+      "type": "textarea",
+      "id": "body",
+      "label": "Subheading",
+      "default": "Designed to help you create a calmer room, reduce screen time, and ease into rest."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image (desktop, 296x187)"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Image (mobile)",
+          "info": "Optional. Falls back to the desktop image if unset."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Image alt text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature title"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Description",
+          "default": "Short paragraph describing the feature."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Pococo (Kik)",
+      "category": "Kik Components",
+      "settings": {
+        "heading": "Why Pococo Feels Different at Night",
+        "body": "Designed to help you create a calmer room, reduce screen time, and ease into rest."
+      },
+      "blocks": [
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "No App. No Phone. No Bedtime Scrolling.",
+            "body": "Control everything with three simple buttons — power, rotate, and timer. No Wi‑Fi, no setup, no notifications.",
+            "alt": "Pococo projector close-up showing three physical buttons"
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "Create a Softer Way to Unwind",
+            "body": "Fill your ceiling and walls with slow-moving celestial scenes that help your room feel quieter and more peaceful.",
+            "alt": "Person relaxing in a bedroom while celestial scenes are projected on the wall"
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "Realistic Stars, Not Laser Dots",
+            "body": "Pococo uses projection discs with detailed cosmic scenes, giving your room a more immersive night-sky experience.",
+            "alt": "Detailed moon phases projected across a bedroom wall"
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "Soft Light That Won’t Take Over the Room",
+            "body": "Gentle, indirect projection creates ambiance without harsh brightness, making it easier to relax before sleep.",
+            "alt": "Children inside a fort lit softly by Pococo projection"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,744 @@
+{
+  "pageKey": "home-v1",
+  "sectionId": "why-pococo-section",
+  "routeKey": "pagePreviewUrl",
+  "view": "kik-section-home-v1-why-pococo-section",
+  "previewTemplatePath": "templates/index.kik-section-home-v1-why-pococo-section.json",
+  "previewUrl": "http://127.0.0.1:9292/?view=kik-section-home-v1-why-pococo-section",
+  "passwordPageDetected": false,
+  "passwordSubmitted": false,
+  "desktop": {
+    "width": 1440,
+    "height": 2200,
+    "title": "Kikstart Dev Plus Store",
+    "url": "http://127.0.0.1:9292/?view=kik-section-home-v1-why-pococo-section",
+    "pageText": "Skip to content\n\nWelcome to our store\n\nKikstart Dev Plus Store\nHome\nCatalog\nContact\nLog in\nCart\nWhy Pococo Feels Different at Night\n\nDesigned to help you create a calmer room, reduce screen time, and ease into rest.\n\nNo App. No Phone. No Bedtime Scrolling.\n\nControl everything with three simple buttons — power, rotate, and timer. No Wi‑Fi, no setup, no notifications.\n\nCreate a Softer Way to Unwind\n\nFill your ceiling and walls with slow-moving celestial scenes that help your room feel quieter and more peaceful.\n\nRealistic Stars, Not Laser Dots\n\nPococo uses projection discs with detailed cosmic scenes, giving your room a more immersive night-sky experience.\n\nSoft Light That Won’t Take Over the Room\n\nGentle, indirect projection creates ambiance without harsh brightness, making it easier to relax before sleep.\n\nQuick links\nSearch\nInfo\nSearch\nOur mission\n\nShare contact information, store details, and brand content with your customers.\n\nSubscribe to our emails\nEmail\nPayment methods\n© 2026, Kikstart Dev Plus Store Powered by Shopify",
+    "sectionMountCount": 4,
+    "screenshotPath": "output/playwright/section-previews/home-v1/why-pococo-section/desktop.png",
+    "regionPresence": {
+      "evaluated": true,
+      "regions": [
+        {
+          "name": "section_heading",
+          "sourceNodeId": "11928:7963",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.315,
+            "y": 0.14239362195235006,
+            "width": 0.37,
+            "height": 0.06378047649949013
+          },
+          "observedNormalized": {
+            "x": 0.29444444444444445,
+            "y": 0.13364947466881294,
+            "width": 0.4111111111111111,
+            "height": 0.04341867699201671
+          },
+          "delta": {
+            "x": 0.02055555555555555,
+            "y": 0.008744147283537118,
+            "width": 0.0411111111111111,
+            "height": 0.020361799507473424
+          }
+        },
+        {
+          "name": "section_subhead",
+          "sourceNodeId": "11928:7964",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.315,
+            "y": 0.22990636877723186,
+            "width": 0.37,
+            "height": 0.035598405488087514
+          },
+          "observedNormalized": {
+            "x": 0.29444444444444445,
+            "y": 0.19934306410563182,
+            "width": 0.4111111111111111,
+            "height": 0.07239346544560701
+          },
+          "delta": {
+            "x": 0.02055555555555555,
+            "y": 0.03056330467160004,
+            "width": 0.0411111111111111,
+            "height": 0.0367950599575195
+          }
+        },
+        {
+          "name": "card1_title",
+          "sourceNodeId": "11928:7969",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.055,
+            "y": 0.661537035320293,
+            "width": 0.185,
+            "height": 0.07712987855752294
+          },
+          "observedNormalized": {
+            "x": 0.06111111111111111,
+            "y": 0.6082530290835527,
+            "width": 0.17777777777777778,
+            "height": 0.06512801548802506
+          },
+          "delta": {
+            "x": 0.006111111111111109,
+            "y": 0.05328400623674023,
+            "width": 0.007222222222222213,
+            "height": 0.012001863069497881
+          }
+        },
+        {
+          "name": "card1_body",
+          "sourceNodeId": "11928:7970",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.055,
+            "y": 0.7505330490405118,
+            "width": 0.185,
+            "height": 0.10679521646426254
+          },
+          "observedNormalized": {
+            "x": 0.06111111111111111,
+            "y": 0.6845185007939788,
+            "width": 0.17777777777777778,
+            "height": 0.14478693089121403
+          },
+          "delta": {
+            "x": 0.006111111111111109,
+            "y": 0.06601454824653297,
+            "width": 0.007222222222222213,
+            "height": 0.037991714426951484
+          }
+        },
+        {
+          "name": "card2_title",
+          "sourceNodeId": "11928:7974",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.29,
+            "y": 0.661537035320293,
+            "width": 0.185,
+            "height": 0.03856493927876147
+          },
+          "observedNormalized": {
+            "x": 0.29444444444444445,
+            "y": 0.6082530290835527,
+            "width": 0.17777777777777778,
+            "height": 0.03256400774401253
+          },
+          "delta": {
+            "x": 0.004444444444444473,
+            "y": 0.05328400623674023,
+            "width": 0.007222222222222213,
+            "height": 0.006000931534748941
+          }
+        },
+        {
+          "name": "card2_body",
+          "sourceNodeId": "11928:7975",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.29,
+            "y": 0.7119681097617503,
+            "width": 0.185,
+            "height": 0.10679521646426254
+          },
+          "observedNormalized": {
+            "x": 0.29444444444444445,
+            "y": 0.6519544930499663,
+            "width": 0.17777777777777778,
+            "height": 0.14478693089121403
+          },
+          "delta": {
+            "x": 0.004444444444444473,
+            "y": 0.06001361671178396,
+            "width": 0.007222222222222213,
+            "height": 0.037991714426951484
+          }
+        },
+        {
+          "name": "card3_title",
+          "sourceNodeId": "11928:7979",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.525,
+            "y": 0.661537035320293,
+            "width": 0.185,
+            "height": 0.03856493927876147
+          },
+          "observedNormalized": {
+            "x": 0.5277777777777778,
+            "y": 0.6082530290835527,
+            "width": 0.17777777777777778,
+            "height": 0.03256400774401253
+          },
+          "delta": {
+            "x": 0.002777777777777768,
+            "y": 0.05328400623674023,
+            "width": 0.007222222222222213,
+            "height": 0.006000931534748941
+          }
+        },
+        {
+          "name": "card3_body",
+          "sourceNodeId": "11928:7980",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.525,
+            "y": 0.7119681097617503,
+            "width": 0.185,
+            "height": 0.10679521646426254
+          },
+          "observedNormalized": {
+            "x": 0.5277777777777778,
+            "y": 0.6519544930499663,
+            "width": 0.17777777777777778,
+            "height": 0.18098366361401752
+          },
+          "delta": {
+            "x": 0.002777777777777768,
+            "y": 0.06001361671178396,
+            "width": 0.007222222222222213,
+            "height": 0.07418844714975498
+          }
+        },
+        {
+          "name": "card4_title",
+          "sourceNodeId": "11928:7984",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.76,
+            "y": 0.661537035320293,
+            "width": 0.185,
+            "height": 0.07712987855752294
+          },
+          "observedNormalized": {
+            "x": 0.7611111111111111,
+            "y": 0.6082530290835527,
+            "width": 0.17777777777777778,
+            "height": 0.06512801548802506
+          },
+          "delta": {
+            "x": 0.0011111111111110628,
+            "y": 0.05328400623674023,
+            "width": 0.007222222222222213,
+            "height": 0.012001863069497881
+          }
+        },
+        {
+          "name": "card4_body",
+          "sourceNodeId": "11928:7985",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.76,
+            "y": 0.7505330490405118,
+            "width": 0.185,
+            "height": 0.10679521646426254
+          },
+          "observedNormalized": {
+            "x": 0.7611111111111111,
+            "y": 0.6845185007939788,
+            "width": 0.17777777777777778,
+            "height": 0.14478693089121403
+          },
+          "delta": {
+            "x": 0.0011111111111110628,
+            "y": 0.06601454824653297,
+            "width": 0.007222222222222213,
+            "height": 0.037991714426951484
+          }
+        },
+        {
+          "name": "card1_image",
+          "sourceNodeId": "11928:7967",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.055,
+            "y": 0.3485677204041902,
+            "width": 0.185,
+            "height": 0.2773709094280152
+          },
+          "observedNormalized": {
+            "x": 0.06111111111111111,
+            "y": 0.3496987231080464,
+            "width": 0.17777777777777778,
+            "height": 0.22514193730830306
+          },
+          "delta": {
+            "x": 0.006111111111111109,
+            "y": 0.0011310027038561876,
+            "width": 0.007222222222222213,
+            "height": 0.052228972119712114
+          }
+        },
+        {
+          "name": "card2_image",
+          "sourceNodeId": "11928:7972",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.29,
+            "y": 0.3485677204041902,
+            "width": 0.185,
+            "height": 0.2773709094280152
+          },
+          "observedNormalized": {
+            "x": 0.29444444444444445,
+            "y": 0.3496987231080464,
+            "width": 0.17777777777777778,
+            "height": 0.22514193730830306
+          },
+          "delta": {
+            "x": 0.004444444444444473,
+            "y": 0.0011310027038561876,
+            "width": 0.007222222222222213,
+            "height": 0.052228972119712114
+          }
+        },
+        {
+          "name": "card3_image",
+          "sourceNodeId": "11928:7977",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.525,
+            "y": 0.3485677204041902,
+            "width": 0.185,
+            "height": 0.2773709094280152
+          },
+          "observedNormalized": {
+            "x": 0.5277777777777778,
+            "y": 0.3496987231080464,
+            "width": 0.17777777777777778,
+            "height": 0.22514193730830306
+          },
+          "delta": {
+            "x": 0.002777777777777768,
+            "y": 0.0011310027038561876,
+            "width": 0.007222222222222213,
+            "height": 0.052228972119712114
+          }
+        },
+        {
+          "name": "card4_image",
+          "sourceNodeId": "11928:7982",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.76,
+            "y": 0.3485677204041902,
+            "width": 0.185,
+            "height": 0.2773709094280152
+          },
+          "observedNormalized": {
+            "x": 0.7611111111111111,
+            "y": 0.3496987231080464,
+            "width": 0.17777777777777778,
+            "height": 0.22514193730830306
+          },
+          "delta": {
+            "x": 0.0011111111111110628,
+            "y": 0.0011310027038561876,
+            "width": 0.007222222222222213,
+            "height": 0.052228972119712114
+          }
+        }
+      ]
+    }
+  },
+  "mobile": {
+    "width": 390,
+    "height": 1600,
+    "title": "Kikstart Dev Plus Store",
+    "url": "http://127.0.0.1:9292/?view=kik-section-home-v1-why-pococo-section",
+    "pageText": "Skip to content\n\nWelcome to our store\n\nKikstart Dev Plus Store\nCart\nWhy Pococo Feels Different at Night\n\nDesigned to help you create a calmer room, reduce screen time, and ease into rest.\n\nNo App. No Phone. No Bedtime Scrolling.\n\nControl everything with three simple buttons — power, rotate, and timer. No Wi‑Fi, no setup, no notifications.\n\nCreate a Softer Way to Unwind\n\nFill your ceiling and walls with slow-moving celestial scenes that help your room feel quieter and more peaceful.\n\nRealistic Stars, Not Laser Dots\n\nPococo uses projection discs with detailed cosmic scenes, giving your room a more immersive night-sky experience.\n\nSoft Light That Won’t Take Over the Room\n\nGentle, indirect projection creates ambiance without harsh brightness, making it easier to relax before sleep.\n\nQuick links\nSearch\nInfo\nSearch\nOur mission\n\nShare contact information, store details, and brand content with your customers.\n\nSubscribe to our emails\nEmail\nPayment methods\n© 2026, Kikstart Dev Plus Store Powered by Shopify",
+    "sectionMountCount": 4,
+    "screenshotPath": "output/playwright/section-previews/home-v1/why-pococo-section/mobile.png",
+    "regionPresence": {
+      "evaluated": true,
+      "regions": [
+        {
+          "name": "section_heading",
+          "sourceNodeId": "11928:6994",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.03864734299516908,
+            "y": 0.026750614279865623,
+            "width": 0.9227053140096618,
+            "height": 0.0423551392764539
+          },
+          "observedNormalized": {
+            "x": 0.041025641025641026,
+            "y": 0.028560803272592042,
+            "width": 0.9179487179487179,
+            "height": 0.015470435105987355
+          },
+          "delta": {
+            "x": 0.0023782980304719453,
+            "y": 0.0018101889927264192,
+            "width": 0.004756596060943918,
+            "height": 0.026884704170466546
+          }
+        },
+        {
+          "name": "section_subhead",
+          "sourceNodeId": "11928:6995",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.03864734299516908,
+            "y": 0.07356418926963046,
+            "width": 0.9227053140096618,
+            "height": 0.023406787494882418
+          },
+          "observedNormalized": {
+            "x": 0.041025641025641026,
+            "y": 0.048791372257344735,
+            "width": 0.9179487179487179,
+            "height": 0.027073261435477874
+          },
+          "delta": {
+            "x": 0.0023782980304719453,
+            "y": 0.024772817012285724,
+            "width": 0.004756596060943918,
+            "height": 0.0036664739405954556
+          }
+        },
+        {
+          "name": "card1_title",
+          "sourceNodeId": "11928:7000",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.2602611847645259,
+            "width": 0.8454106280193237,
+            "height": 0.013375307139932811
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.23172182967645966,
+            "width": 0.8358974358974359,
+            "height": 0.013146150985496466
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.028539355088066265,
+            "width": 0.009513192121887726,
+            "height": 0.00022915615443634511
+          }
+        },
+        {
+          "name": "card1_body",
+          "sourceNodeId": "11928:7001",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.27809492761776966,
+            "width": 0.8454106280193237,
+            "height": 0.023406787494882418
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.24962811454072145,
+            "width": 0.8358974358974359,
+            "height": 0.04060989215321681
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.02846681307704821,
+            "width": 0.009513192121887726,
+            "height": 0.01720310465833439
+          }
+        },
+        {
+          "name": "card2_title",
+          "sourceNodeId": "11928:7005",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.46479192311266515,
+            "width": 0.8454106280193237,
+            "height": 0.013375307139932811
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.455615470435106,
+            "width": 0.8358974358974359,
+            "height": 0.013146150985496466
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.009176452677559177,
+            "width": 0.009513192121887726,
+            "height": 0.00022915615443634511
+          }
+        },
+        {
+          "name": "card2_body",
+          "sourceNodeId": "11928:7006",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.4826256659659089,
+            "width": 0.8454106280193237,
+            "height": 0.03511018124232363
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.4735217552993678,
+            "width": 0.8358974358974359,
+            "height": 0.04060989215321681
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.009103910666541093,
+            "width": 0.009513192121887726,
+            "height": 0.005499710910893178
+          }
+        },
+        {
+          "name": "card3_title",
+          "sourceNodeId": "11928:7010",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.6916148400273591,
+            "width": 0.8454106280193237,
+            "height": 0.013375307139932811
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.6795091111937523,
+            "width": 0.8358974358974359,
+            "height": 0.013146150985496466
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.012105728833606721,
+            "width": 0.009513192121887726,
+            "height": 0.00022915615443634511
+          }
+        },
+        {
+          "name": "card3_body",
+          "sourceNodeId": "11928:7011",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.7094485828806029,
+            "width": 0.8454106280193237,
+            "height": 0.03511018124232363
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.6974153960580142,
+            "width": 0.8358974358974359,
+            "height": 0.04060989215321681
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.012033186822588693,
+            "width": 0.009513192121887726,
+            "height": 0.005499710910893178
+          }
+        },
+        {
+          "name": "card4_title",
+          "sourceNodeId": "11928:7015",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.918437756942053,
+            "width": 0.8454106280193237,
+            "height": 0.026750614279865623
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.9034027519523986,
+            "width": 0.8358974358974359,
+            "height": 0.013146150985496466
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.015035004989654377,
+            "width": 0.009513192121887726,
+            "height": 0.013604463294369156
+          }
+        },
+        {
+          "name": "card4_body",
+          "sourceNodeId": "11928:7016",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.9496468069352295,
+            "width": 0.8454106280193237,
+            "height": 0.023406787494882418
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.9213090368166604,
+            "width": 0.8358974358974359,
+            "height": 0.04060989215321681
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.028337770118569083,
+            "width": 0.009513192121887726,
+            "height": 0.01720310465833439
+          }
+        },
+        {
+          "name": "card1_image",
+          "sourceNodeId": "11928:6998",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.11926315533106756,
+            "width": 0.8454106280193237,
+            "height": 0.12316428658021462
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.09966530308664931,
+            "width": 0.8358974358974359,
+            "height": 0.12253625883227966
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.01959785224441825,
+            "width": 0.009513192121887726,
+            "height": 0.0006280277479349672
+          }
+        },
+        {
+          "name": "card2_image",
+          "sourceNodeId": "11928:7003",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.3237938936792068,
+            "width": 0.8454106280193237,
+            "height": 0.12316428658021462
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.32355894384529565,
+            "width": 0.8358974358974359,
+            "height": 0.12253625883227966
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.00023494983391114665,
+            "width": 0.009513192121887726,
+            "height": 0.0006280277479349672
+          }
+        },
+        {
+          "name": "card3_image",
+          "sourceNodeId": "11928:7008",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.5506168105939007,
+            "width": 0.8454106280193237,
+            "height": 0.12316428658021462
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.547452584603942,
+            "width": 0.8358974358974359,
+            "height": 0.12253625883227966
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.003164225989958691,
+            "width": 0.009513192121887726,
+            "height": 0.0006280277479349672
+          }
+        },
+        {
+          "name": "card4_image",
+          "sourceNodeId": "11928:7013",
+          "matched": true,
+          "foundIn": "shopify-section-template--21673129377989__why_pococo_section",
+          "geometryEvaluated": true,
+          "expectedNormalized": {
+            "x": 0.07729468599033816,
+            "y": 0.7774397275085946,
+            "width": 0.8454106280193237,
+            "height": 0.12316428658021462
+          },
+          "observedNormalized": {
+            "x": 0.08205128205128205,
+            "y": 0.7713462253625883,
+            "width": 0.8358974358974359,
+            "height": 0.12253625883227966
+          },
+          "delta": {
+            "x": 0.004756596060943891,
+            "y": 0.0060935021460062355,
+            "width": 0.009513192121887726,
+            "height": 0.0006280277479349672
+          }
+        }
+      ]
+    }
+  },
+  "figmaBaselines": {
+    "desktop": null,
+    "mobile": null
+  },
+  "visualReviewStatus": "pending-human-review",
+  "status": "passed"
+}

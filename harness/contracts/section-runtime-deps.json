@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/section-runtime-deps.json",
+  "schemaVersion": "1.0.0",
+  "description": "Maps a section's (implementationPolicy.pattern, implementationPolicy.defaultImplementation) tuple to the npm packages the implementing agent must install before authoring the section. Also lists devDependencies needed by verify-section-preview modes. Read by scripts/inspect/inspect-bootstrap.mjs to compute sectionRuntimeDepsInstalled. Adding a new pattern/implementation pair only requires editing this file — section skills do not need to be rewritten.",
+  "matrix": {
+    "carousel/swiper": {
+      "deps": ["swiper@^11"],
+      "skill": "skills/theme/swiper-carousel/SKILL.md",
+      "rationale": "skills/theme/swiper-carousel/SKILL.md depends on Swiper v11 APIs (modular module imports, slideToLoop, swiper/css path)."
+    },
+    "carousel/scroll-snap": {
+      "deps": [],
+      "skill": "skills/theme/implement-section-from-figma/SKILL.md",
+      "rationale": "Pure CSS scroll-snap pattern; no runtime npm dependency."
+    },
+    "static/none": {
+      "deps": [],
+      "skill": "skills/theme/implement-section-from-figma/SKILL.md",
+      "rationale": "Static section; no runtime npm dependency."
+    }
+  },
+  "verifyDeps": {
+    "storefront-render": {
+      "devDeps": [],
+      "rationale": "scripts/agent/verify-section-preview.mjs uses the playwright already required by the offline path; no extra dep when going through storefront-render."
+    },
+    "offline": {
+      "devDeps": ["playwright"],
+      "postInstall": ["npx playwright install chromium"],
+      "rationale": "scripts/agent/verify-section-preview-offline.mjs drives playwright against a static HTML snapshot. Chromium is not bundled with the harness package."
+    }
+  }
+}

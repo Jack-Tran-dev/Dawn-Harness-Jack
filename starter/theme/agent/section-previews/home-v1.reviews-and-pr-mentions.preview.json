@@ -1,0 +1,30 @@
+{
+  "pageKey": "home-v1",
+  "sectionId": "reviews-and-pr-mentions",
+  "mode": "offline-snapshot",
+  "view": "kik-section-home-v1-reviews-and-pr-mentions-offline",
+  "previewTemplatePath": "output/section-snapshots/home-v1/reviews-and-pr-mentions/preview.html",
+  "previewUrl": "file:///Users/train/workspace/project/kik/dawn-harness/output/section-snapshots/home-v1/reviews-and-pr-mentions/preview.html",
+  "desktop": {
+    "width": 1440,
+    "height": 2200,
+    "screenshotPath": "output/playwright/section-previews/home-v1/reviews-and-pr-mentions/desktop.png",
+    "title": "Reviews & Press — offline section preview (home-v1)",
+    "bodyChildCount": 1,
+    "sectionMountCount": 1
+  },
+  "mobile": {
+    "width": 390,
+    "height": 1600,
+    "screenshotPath": "output/playwright/section-previews/home-v1/reviews-and-pr-mentions/mobile.png",
+    "title": "Reviews & Press — offline section preview (home-v1)",
+    "bodyChildCount": 1,
+    "sectionMountCount": 1
+  },
+  "figmaBaselines": {
+    "desktop": null,
+    "mobile": null
+  },
+  "visualReviewStatus": "pending-human-review",
+  "status": "passed"
+}

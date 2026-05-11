@@ -1,0 +1,168 @@
+{
+  "sectionId": "hero-section",
+  "status": "blocked",
+  "changedFiles": [
+    "sections/kik-hero-section.liquid",
+    "src/kik-component.js",
+    "starter/theme/agent/sections/home-v1.hero-section.task.json",
+    "starter/theme/agent/results/home-v1.hero-section.result.json"
+  ],
+  "summary": "Authored a 3-slide Swiper hero carousel section (sections/kik-hero-section.liquid) plus the kik-hero-carousel custom element (src/kik-component.js). Both desktop and mobile REST hero assets were uploaded to Shopify Files via the agent-tool server. Section is blocked at preview verification because (a) the project has no pnpm build script wired up, so assets/kik-theme.css and assets/kik-component.js cannot be regenerated, (b) layout/theme.liquid does not load the kik build outputs, (c) harness/config/browser-verification.json does not exist, and (d) no Shopify theme dev server is running at 127.0.0.1:9292. None of these are Figma or implementation defects; they are project-bootstrap gaps the developer must close before storefront-render acceptance can run.",
+  "verification": {
+    "status": "failed",
+    "summary": "Self-checks cover desktop and mobile design-context inspection, schema derived from content structure, runtime slot preserved, utility-first Tailwind markup, shared-CSS policy respected, custom-element interaction wiring, and native data binding (n/a). sectionPreviewRendered is false because the Shopify theme dev server is not running and the project has no pnpm build script to produce assets/kik-theme.css and assets/kik-component.js.",
+    "checks": {
+      "desktopReviewed": true,
+      "mobileReviewed": true,
+      "schemaDerived": true,
+      "runtimeSlotPreserved": true,
+      "utilityMarkupUsed": true,
+      "sharedCssPolicyRespected": true,
+      "interactionWired": true,
+      "customElementUsed": true,
+      "sectionPreviewRendered": false
+    }
+  },
+  "templateContribution": {
+    "sectionType": "kik-hero-section",
+    "settings": {
+      "aria_label": "Hero promotions",
+      "autoplay_delay": 0
+    },
+    "blocks": {
+      "slide_1": {
+        "type": "slide",
+        "settings": {
+          "image": "shopify://files/hero-desktop-hero-section-2d233f2fa1.png",
+          "image_mobile": "shopify://files/hero-mobile-hero-section-8f86bc19e7.png",
+          "heading": "May Day Gift with Purchase",
+          "body": "Create a calming galaxy room for better sleep — and get up to 8 projector discs free.",
+          "cta_label": "Shop Galaxy Projector",
+          "cta_url": "/collections/galaxy-projector"
+        }
+      },
+      "slide_2": {
+        "type": "slide",
+        "settings": {
+          "image": "shopify://files/hero-desktop-hero-section-2d233f2fa1.png",
+          "image_mobile": "shopify://files/hero-mobile-hero-section-8f86bc19e7.png",
+          "heading": "May Day Gift with Purchase",
+          "body": "Create a calming galaxy room for better sleep — and get up to 8 projector discs free.",
+          "cta_label": "Shop Galaxy Projector",
+          "cta_url": "/collections/galaxy-projector"
+        }
+      },
+      "slide_3": {
+        "type": "slide",
+        "settings": {
+          "image": "shopify://files/hero-desktop-hero-section-2d233f2fa1.png",
+          "image_mobile": "shopify://files/hero-mobile-hero-section-8f86bc19e7.png",
+          "heading": "May Day Gift with Purchase",
+          "body": "Create a calming galaxy room for better sleep — and get up to 8 projector discs free.",
+          "cta_label": "Shop Galaxy Projector",
+          "cta_url": "/collections/galaxy-projector"
+        }
+      }
+    },
+    "block_order": ["slide_1", "slide_2", "slide_3"]
+  },
+  "assetUploads": [
+    {
+      "assetId": "hero-desktop-hero-section-2d233f2fa1",
+      "sourcePath": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+      "mimeType": "image/png",
+      "sha256": "sha256:470268caf5fd9886fcbcefdf4ac21e7889fbad97b67dee508e9aa86a1cd68594",
+      "shopifyFileId": "gid://shopify/MediaImage/33054260003013",
+      "shopifyUrl": "https://cdn.shopify.com/s/files/1/0721/2764/3845/files/hero-desktop-hero-section-2d233f2fa1.png?v=1778148221",
+      "alt": "Pococo hero — galaxy living room (desktop background)",
+      "settingId": "blocks.slide_*.settings.image",
+      "settingValue": "shopify://files/hero-desktop-hero-section-2d233f2fa1.png",
+      "syncJobId": "cmowmrc4d0008m2f3mycpk81o"
+    },
+    {
+      "assetId": "hero-mobile-hero-section-8f86bc19e7",
+      "sourcePath": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png",
+      "mimeType": "image/png",
+      "sha256": "sha256:16c4e61f98d74cee56aecfc99730e15ab950821fc7c60d70eba279e96d1baef2",
+      "shopifyFileId": "gid://shopify/MediaImage/33054261510341",
+      "shopifyUrl": "https://cdn.shopify.com/s/files/1/0721/2764/3845/files/hero-mobile-hero-section-8f86bc19e7.png?v=1778148227",
+      "alt": "Pococo hero — galaxy living room (mobile background)",
+      "settingId": "blocks.slide_*.settings.image_mobile",
+      "settingValue": "shopify://files/hero-mobile-hero-section-8f86bc19e7.png",
+      "syncJobId": "cmowmrc4d0008m2f3mycpk81o"
+    },
+    {
+      "assetId": "hero-desktop-hero-section-1e51ce465c",
+      "sourcePath": "design-assets/images/hero-desktop-hero-section-1e51ce465c.png",
+      "mimeType": "image/png",
+      "sha256": "sha256:d1e734fbd45e6067681eb5025acf8f8f3befb59eb0588bca4bbb4ddce6157d28",
+      "shopifyFileId": null,
+      "shopifyUrl": null,
+      "settingId": null,
+      "settingValue": null,
+      "syncJobId": null,
+      "skippedReason": "Second layered desktop fill from the Figma frame; the implemented hero uses a single image-fill per slide (per the section-notes agentPrompt that authorizes one shared image for all 3 slides), so this candidate is retained but not bound."
+    }
+  ],
+  "implementationDecision": {
+    "mode": "swiper",
+    "themeCodeReuse": "avoided",
+    "styleStrategy": "tailwind-utilities-primary",
+    "sharedStyleChange": "none"
+  },
+  "commandsRun": [
+    "node ./scripts/agent/resolve-page-key.mjs --json",
+    "mcp.figma.get_metadata fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:8842 (desktop hero root) — returned shallow root frame, no child subtree",
+    "mcp.figma.get_metadata fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:7873 (mobile hero root) — returned shallow root frame, no child subtree",
+    "mcp.figma.get_design_context fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:8842 (desktop fallback per figma-first/SKILL.md)",
+    "mcp.figma.get_design_context fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:7873 (mobile fallback per figma-first/SKILL.md)",
+    "curl -X GET http://127.0.0.1:8787/v1/shop-context — 200 OK (agent-tool server reachable, bearer accepted)",
+    "curl -X POST http://127.0.0.1:8787/v1/sync-jobs (multipart) — jobId=cmowmrc4d0008m2f3mycpk81o",
+    "curl -X GET http://127.0.0.1:8787/v1/sync-jobs/cmowmrc4d0008m2f3mycpk81o — status=completed, 2 assets uploaded",
+    "pnpm build — Command \"build\" not found (no build script in package.json; assets/kik-theme.css and assets/kik-component.js cannot be (re)generated)",
+    "curl -X GET http://127.0.0.1:9292/ — connection refused (Shopify theme dev not running; verify-section-preview cannot reach storefront)",
+    "make create-section-preview PAGE=home-v1 SECTION=hero-section PROJECT_ROOT=. — failed: 'hero-section: section result status is blocked' (scripts/agent/create-section-preview.mjs:120). Will pass once the four blockers above are resolved and this result is upgraded to status=completed.",
+    "make verify-section-preview PAGE=home-v1 SECTION=hero-section PROJECT_ROOT=. — failed: ENOENT harness/config/browser-verification.json (scripts/agent/verify-section-preview.mjs:23). Copy harness/config/browser-verification.example.json to harness/config/browser-verification.json and fill storefrontPassword + pagePreviewUrl before retry."
+  ],
+  "openIssues": [
+    "Project build pipeline is not wired up: package.json defines no \"build\" script and devDependencies only contain shopify-theme-harness@0.1.19 — no Tailwind CLI, no Swiper, no bundler. assets/kik-theme.css and assets/kik-component.js do not exist, so the section's utility classes and the kik-hero-carousel custom element will not function in any Shopify preview until a build pipeline is added (the Kik profile expects pnpm build to compile src/input.css and src/kik-component.js).",
+    "layout/theme.liquid does not include {{ 'kik-theme.css' | asset_url | stylesheet_tag }} or {{ 'kik-component.js' | asset_url }}; even after the build outputs are produced they will not be loaded by the live theme until layout/theme.liquid is updated.",
+    "harness/config/browser-verification.json is absent (only the *.example.json template exists). verify-section-preview cannot run without it; copy the example, set storefrontPassword, and confirm pagePreviewUrl points at the running theme dev URL.",
+    "Shopify theme dev server is not running at http://127.0.0.1:9292/ (curl returned connection refused). Start `shopify theme dev` (or whichever process the harness expects) before invoking make verify-section-preview; otherwise the preview will fail at the storefront-render step.",
+    "Skipped `make create-section-preview` and `make verify-section-preview`: create-section-preview rejects section results whose status != \"completed\" (line 119 of scripts/agent/create-section-preview.mjs), and verify-section-preview needs a running storefront. They will run cleanly once the four blockers above are resolved and this result is upgraded to status=completed.",
+    "Figma MCP get_metadata returned a shallow root frame (no child subtree) for both 11928:8842 (desktop) and 11928:7873 (mobile). Per skills/theme/figma-first/SKILL.md the brief coordinates were derived from get_design_context as the documented fallback; FIGMA_METADATA_SHALLOW diagnostics are recorded on both breakpoints in section-task.brief.layout.{desktop,mobile}.diagnostics. A future re-run with a deeper MCP response should re-anchor brief.layout.* on direct measurements.",
+    "harness/notes/home-v1.json#sections/hero-section explicitly authorizes rendering all three Swiper slides with the same image (\"每一个slide可以使用同一张图片\"). This intentionally relaxes the swiper-carousel/SKILL.md \"never render every slide with the same image\" rule; the authorization is mirrored verbatim in notesAcknowledged.agentPrompt and reflected in templateContribution.blocks (slide_1/2/3 share image + image_mobile)."
+  ],
+  "needsMainAgentVerification": [
+    "preview_render",
+    "theme_check",
+    "page_level_layout_review"
+  ],
+  "sectionPreview": {
+    "status": "blocked",
+    "templatePath": "templates/index.kik-section-home-v1-hero-section.json",
+    "view": "kik-section-home-v1-hero-section",
+    "previewUrl": "http://127.0.0.1:9292/?view=kik-section-home-v1-hero-section",
+    "artifactPath": "starter/theme/agent/section-previews/home-v1.hero-section.preview.json",
+    "figmaBaselines": {
+      "desktop": "design-assets/images/hero-desktop-hero-section-2d233f2fa1.png",
+      "mobile": "design-assets/images/hero-mobile-hero-section-8f86bc19e7.png"
+    },
+    "runtimeScreenshots": {
+      "desktop": "(blocked — theme dev not running and no kik build outputs)",
+      "mobile": "(blocked — theme dev not running and no kik build outputs)"
+    }
+  },
+  "notesAcknowledged": {
+    "path": "harness/notes/home-v1.json",
+    "sha256": "sha256:ae2a21ad1da5250d7c38a78ff259941b7a191bcdac387cd46108ad62ac0ac697",
+    "sectionId": "hero-section",
+    "agentPrompt": "Implement this section as a 3-slide Swiper carousel, 每一个slide可以使用同一张图片",
+    "implementationPolicy": {
+      "pattern": "carousel",
+      "defaultImplementation": "swiper",
+      "repeatedContentSource": "blocks",
+      "themeCodeReuse": "avoid"
+    }
+  }
+}

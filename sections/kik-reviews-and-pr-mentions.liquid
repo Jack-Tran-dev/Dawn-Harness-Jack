@@ -1,0 +1,199 @@
+{%- liquid
+  assign aria_label = section.settings.aria_label | default: 'Reviews and press mentions'
+  assign review_rating = section.settings.review_rating | default: '4.7/5'
+  assign review_count_label = section.settings.review_count_label | default: 'from 1,300+ reviews'
+  assign review_subtitle = section.settings.review_subtitle | default: 'Loved for bedtime, relaxation, and room ambiance.'
+  assign pr_eyebrow = section.settings.pr_eyebrow | default: 'AS FEATURED IN'
+  assign logos = section.blocks
+-%}
+<section
+  class="kik-component bg-page text-primary px-page py-16 md:py-24 w-full"
+  aria-label="{{ aria_label | escape }}"
+  data-kik-region="11928:7884 11928:6915"
+>
+  <div class="mx-auto flex w-full max-w-[var(--kik-container-max-width)] flex-col items-stretch gap-16 md:flex-row md:items-center md:gap-0">
+    <div
+      class="flex min-w-0 flex-1 flex-col items-start gap-8"
+      data-kik-region="11928:7885 11928:6916"
+    >
+      <div class="flex items-center gap-8" data-kik-region="11928:7886 11928:6917">
+        <span
+          class="inline-flex h-[10px] w-[58px] shrink-0 items-center gap-[2px]"
+          aria-hidden="true"
+          data-kik-region="11928:7887 11928:6918"
+        >
+          {%- for i in (1..5) -%}
+            <svg
+              viewBox="0 0 10 10"
+              class="block h-[10px] w-[10px]"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5 0.5l1.39 2.82 3.11.45-2.25 2.19.53 3.1L5 7.6 2.22 9.06l.53-3.1L.5 3.77l3.11-.45L5 .5z"
+                fill="var(--kik-color-bg-star)"
+              />
+            </svg>
+          {%- endfor -%}
+        </span>
+        <span class="inline-flex items-center gap-[4px] whitespace-nowrap text-body-sm leading-[1.5]">
+          <span
+            class="font-medium text-primary"
+            data-kik-region="11928:7894 11928:6925"
+          >{{ review_rating | escape }}</span>
+          <span
+            class="text-[var(--kik-color-text-tertiary)]"
+            data-kik-region="11928:7895 11928:6926"
+          >{{ review_count_label | escape }}</span>
+        </span>
+      </div>
+      <p
+        class="m-0 w-full text-body-xsm leading-[1.5] text-[var(--kik-color-text-tertiary)]"
+        data-kik-region="11928:7896 11928:6927"
+      >{{ review_subtitle | escape }}</p>
+    </div>
+
+    <div
+      class="flex min-w-0 flex-1 flex-col items-start gap-8 md:border-l md:border-border-subtle md:pl-24"
+      data-kik-region="11928:7897 11928:6928"
+    >
+      <p
+        class="m-0 w-full font-medium uppercase tracking-[0.06em] text-body-xsm leading-[1.5] text-[var(--kik-color-text-secondary)]"
+        data-kik-region="11928:7898 11928:6929"
+      >{{ pr_eyebrow | escape }}</p>
+      <ul
+        class="m-0 flex w-full list-none flex-wrap items-center gap-16 p-0 md:gap-24"
+        data-kik-region="11928:7899 11928:6930"
+      >
+        {%- for block in logos -%}
+          <li
+            class="flex h-[16px] shrink-0 items-center"
+            {{ block.shopify_attributes }}
+          >
+            {%- assign logo_link = block.settings.url -%}
+            {%- assign logo_alt = block.settings.alt | default: block.settings.logo.alt | default: '' -%}
+            {%- capture logo_markup -%}
+              {%- if block.settings.logo != blank -%}
+                <img
+                  src="{{ block.settings.logo | image_url: height: 48 }}"
+                  alt="{{ logo_alt | escape }}"
+                  loading="lazy"
+                  decoding="async"
+                  class="block h-[16px] w-auto max-w-none object-contain"
+                  width="{{ block.settings.logo.width }}"
+                  height="{{ block.settings.logo.height }}"
+                >
+              {%- else -%}
+                <span class="block h-[16px] w-[58px] text-[var(--kik-color-text-tertiary)]">
+                  {{ 'logo' | placeholder_svg_tag: 'block h-[16px] w-[58px] object-contain' }}
+                </span>
+              {%- endif -%}
+            {%- endcapture -%}
+            {%- if logo_link != blank -%}
+              <a
+                href="{{ logo_link }}"
+                class="inline-flex h-[16px] items-center no-underline"
+                aria-label="{{ logo_alt | default: 'Press mention' | escape }}"
+                rel="noopener"
+              >{{ logo_markup }}</a>
+            {%- else -%}
+              {{ logo_markup }}
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews & Press (Kik)",
+  "tag": "section",
+  "class": "kik-section kik-reviews-and-pr-mentions",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Section ARIA label",
+      "default": "Reviews and press mentions"
+    },
+    {
+      "type": "header",
+      "content": "Review summary"
+    },
+    {
+      "type": "text",
+      "id": "review_rating",
+      "label": "Rating",
+      "default": "4.7/5"
+    },
+    {
+      "type": "text",
+      "id": "review_count_label",
+      "label": "Rating subtext",
+      "info": "e.g. 'from 1,300+ reviews'.",
+      "default": "from 1,300+ reviews"
+    },
+    {
+      "type": "text",
+      "id": "review_subtitle",
+      "label": "Review tagline",
+      "default": "Loved for bedtime, relaxation, and room ambiance."
+    },
+    {
+      "type": "header",
+      "content": "Press mentions"
+    },
+    {
+      "type": "text",
+      "id": "pr_eyebrow",
+      "label": "Press eyebrow",
+      "default": "AS FEATURED IN"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pr_logo",
+      "name": "Press logo",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo (monochrome PNG/SVG, 16px tall)"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text",
+          "info": "Accessible name for the logo (e.g. 'Associated Press')."
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Optional link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews & Press (Kik)",
+      "category": "Kik Components",
+      "blocks": [
+        { "type": "pr_logo", "settings": { "alt": "Associated Press" } },
+        { "type": "pr_logo", "settings": { "alt": "Yahoo!" } },
+        { "type": "pr_logo", "settings": { "alt": "CBS" } },
+        { "type": "pr_logo", "settings": { "alt": "NBC" } },
+        { "type": "pr_logo", "settings": { "alt": "ABC News" } },
+        { "type": "pr_logo", "settings": { "alt": "KTXL" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

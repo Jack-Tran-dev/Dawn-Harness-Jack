@@ -1,0 +1,145 @@
+{
+  "sectionId": "reviews-and-pr-mentions",
+  "status": "partial",
+  "changedFiles": [
+    "sections/kik-reviews-and-pr-mentions.liquid",
+    "templates/index.kik-section-home-v1-reviews-and-pr-mentions.json",
+    "starter/theme/agent/sections/home-v1.reviews-and-pr-mentions.task.json",
+    "starter/theme/agent/results/home-v1.reviews-and-pr-mentions.result.json",
+    "starter/theme/agent/section-previews/home-v1.reviews-and-pr-mentions.preview-template.json",
+    "starter/theme/agent/section-previews/home-v1.reviews-and-pr-mentions.preview.json",
+    "output/section-snapshots/home-v1/reviews-and-pr-mentions/preview.html",
+    "output/playwright/section-previews/home-v1/reviews-and-pr-mentions/desktop.png",
+    "output/playwright/section-previews/home-v1/reviews-and-pr-mentions/mobile.png",
+    ".shopifyignore"
+  ],
+  "summary": "Authored sections/kik-reviews-and-pr-mentions.liquid as a static two-column reviews + press-mentions strip. Desktop pins reviews left and a divided press column right (border-l, pl-24, gap-8 internal); mobile stacks the two columns full-width with no divider. Star icons render as inline SVG (vector content, not image-fill, so not present in design-assets/manifest.json), and PR logos are merchant-supplied via 6 default image_picker blocks with a Shopify placeholder fallback. Settings were derived directly from the section's content structure: aria_label, review_rating, review_count_label, review_subtitle, pr_eyebrow. Delivered partial via verify-section-preview-offline because the storefront-render path is blocked by upstream issues outside this section's scope (see openIssues for the PREVIEW_STOREFRONT_5XX detail).",
+  "verification": {
+    "status": "needs-main-agent",
+    "summary": "Self-checks cover desktop and mobile Figma MCP measurement (get_metadata + get_design_context), schema derived from content structure (5 settings + pr_logo blocks), runtime slot preserved (sections/kik-reviews-and-pr-mentions.liquid → templateContribution.sectionType=kik-reviews-and-pr-mentions), Tailwind utility-first markup, shared-CSS policy respected (no edits to src/input.css), and section preview rendered via verify-section-preview-offline (status=passed, mounted 1 section per viewport). Storefront-render preview is blocked by upstream issues outside this section's scope: stale templates/kik-theme-init/* scaffold files on the remote dev theme and an unrelated `kik-hero-section.liquid` schema bug (autoplay_delay max must be < 10000). The main agent should clean the remote theme (e.g. shopify theme push --delete) and resolve the hero schema before re-running make verify-section-preview to upgrade this section to status=completed.",
+    "checks": {
+      "desktopReviewed": true,
+      "mobileReviewed": true,
+      "schemaDerived": true,
+      "runtimeSlotPreserved": true,
+      "utilityMarkupUsed": true,
+      "sharedCssPolicyRespected": true,
+      "sectionPreviewRendered": true
+    }
+  },
+  "templateContribution": {
+    "sectionType": "kik-reviews-and-pr-mentions",
+    "settings": {
+      "aria_label": "Reviews and press mentions",
+      "review_rating": "4.7/5",
+      "review_count_label": "from 1,300+ reviews",
+      "review_subtitle": "Loved for bedtime, relaxation, and room ambiance.",
+      "pr_eyebrow": "AS FEATURED IN"
+    },
+    "blocks": {
+      "logo_associated_press": {
+        "type": "pr_logo",
+        "settings": {
+          "alt": "Associated Press"
+        }
+      },
+      "logo_yahoo": {
+        "type": "pr_logo",
+        "settings": {
+          "alt": "Yahoo!"
+        }
+      },
+      "logo_cbs": {
+        "type": "pr_logo",
+        "settings": {
+          "alt": "CBS"
+        }
+      },
+      "logo_nbc": {
+        "type": "pr_logo",
+        "settings": {
+          "alt": "NBC"
+        }
+      },
+      "logo_abc_news": {
+        "type": "pr_logo",
+        "settings": {
+          "alt": "ABC News"
+        }
+      },
+      "logo_ktxl": {
+        "type": "pr_logo",
+        "settings": {
+          "alt": "KTXL"
+        }
+      }
+    },
+    "block_order": [
+      "logo_associated_press",
+      "logo_yahoo",
+      "logo_cbs",
+      "logo_nbc",
+      "logo_abc_news",
+      "logo_ktxl"
+    ]
+  },
+  "assetUploads": [],
+  "implementationDecision": {
+    "mode": "none",
+    "themeCodeReuse": "avoided",
+    "styleStrategy": "tailwind-utilities-primary",
+    "sharedStyleChange": "none"
+  },
+  "commandsRun": [
+    "node ./scripts/agent/resolve-page-key.mjs --json",
+    "node ./scripts/inspect/inspect-bootstrap.mjs --json",
+    "make bootstrap-kik-theme",
+    "pnpm install",
+    "pnpm add swiper@^11",
+    "pnpm build",
+    "node ./scripts/agent/storefront-dev.mjs start",
+    "mcp.figma.get_metadata fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:7884 (desktop reviews-and-pr-mentions root)",
+    "mcp.figma.get_metadata fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:6915 (mobile reviews-and-pr-mentions root)",
+    "mcp.figma.get_design_context fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:7884 (desktop secondary check)",
+    "mcp.figma.get_design_context fileKey=8ZeaG0uv832dg4Gn7HonGC nodeId=11928:6915 (mobile secondary check)",
+    "make create-section-preview PAGE=home-v1 SECTION=reviews-and-pr-mentions PROJECT_ROOT=. (created templates/index.kik-section-home-v1-reviews-and-pr-mentions.json)",
+    "TMPDIR=/tmp/sth-pwcli make verify-section-preview PAGE=home-v1 SECTION=reviews-and-pr-mentions PROJECT_ROOT=. — failed: storefront returned the Shopify upload-error page for ALL routes because pre-existing files block validation (see openIssues PREVIEW_STOREFRONT_5XX)",
+    "node ./scripts/agent/storefront-dev.mjs restart (after adding templates/kik-theme-init/* to .shopifyignore — local dev still serves the upload-error page because the stale scaffold files remain on the remote dev theme)",
+    "pnpm add -D playwright && npx playwright install chromium (per offline preview contract verifyDeps.offline)",
+    "TMPDIR=/tmp/sth-pwcli make verify-section-preview-offline PAGE=home-v1 SECTION=reviews-and-pr-mentions PROJECT_ROOT=. — passed (1 section mounted in each of desktop 1440x2200 and mobile 390x1600 viewports)"
+  ],
+  "openIssues": [
+    "PREVIEW_STOREFRONT_5XX: storefront dev (http://127.0.0.1:9292/) returns the Shopify upload-error page for ALL routes because three pre-existing files outside this section's scope fail Shopify validation: (a) sections/kik-hero-section.liquid 'Invalid schema: setting with id=\"autoplay_delay\" max must be less than 10000' — fix by lowering the range max to 9999; (b) templates/kik-theme-init/sections/kik-preview-placeholder.liquid 'Liquid syntax error (line 9): Unknown tag \"schema\"' — bootstrap scaffold leftover; (c) templates/kik-theme-init/templates/index.kik-preview.json 'Template type \"kik-theme-init/templates/index\" does not support JSON templates' — same scaffold dir. Added templates/kik-theme-init/* to .shopifyignore so future syncs skip them, but the stale copies on the remote dev theme still trigger the validation page; clean with `shopify theme push --delete` (or delete the kik-theme-init scaffold from the remote theme manually) and fix the kik-hero-section autoplay_delay max, then re-run `make verify-section-preview PAGE=home-v1 SECTION=reviews-and-pr-mentions PROJECT_ROOT=.` to upgrade this section to status=completed via storefront-render. Per skills/theme/implement-section-from-figma/SKILL.md non-negotiable rules (\"Work on this section only. Do not broaden scope into neighboring sections\"), this section subagent did NOT touch sections/kik-hero-section.liquid or delete the kik-theme-init scaffold.",
+    "design-assets/manifest.json contains no REST asset candidates for this section — all child icons (5 stars, 6 press logos) are Figma vector frames, not image-fill nodes, so figma-extract-assets cannot capture them. Stars are rendered as inline SVG; press logos are merchant-supplied via image_picker blocks with a placeholder_svg_tag fallback. No Shopify Files upload was performed for this section.",
+    "harness/notes/home-v1.json#sections/reviews-and-pr-mentions has no agentPrompt or implementationPolicy override, so the source-manifest classification (sectionType=theme-section, dataSourceKind=none, recommendedSkill=skills/theme/implement-section-from-figma/SKILL.md) was followed verbatim.",
+    "Added templates/kik-theme-init/* to .shopifyignore (single line in a non-section, non-Liquid config file). This is a bootstrap-config gap and not a 'sibling section' edit — the scaffold dir contains documentation-only Liquid examples that should never be uploaded to a Shopify theme."
+  ],
+  "needsMainAgentVerification": [
+    "preview_render",
+    "theme_check",
+    "page_level_layout_review"
+  ],
+  "notesAcknowledged": {
+    "path": "harness/notes/home-v1.json",
+    "sha256": "sha256:ae2a21ad1da5250d7c38a78ff259941b7a191bcdac387cd46108ad62ac0ac697",
+    "sectionId": "reviews-and-pr-mentions",
+    "agentPrompt": null,
+    "implementationPolicy": null
+  },
+  "sectionPreview": {
+    "status": "pending-human-review",
+    "mode": "offline-snapshot",
+    "templatePath": "output/section-snapshots/home-v1/reviews-and-pr-mentions/preview.html",
+    "view": "kik-section-home-v1-reviews-and-pr-mentions-offline",
+    "previewUrl": "file:///Users/train/workspace/project/kik/dawn-harness/output/section-snapshots/home-v1/reviews-and-pr-mentions/preview.html",
+    "artifactPath": "agent/section-previews/home-v1.reviews-and-pr-mentions.preview.json",
+    "figmaBaselines": {
+      "desktop": null,
+      "mobile": null
+    },
+    "runtimeScreenshots": {
+      "desktop": "output/playwright/section-previews/home-v1/reviews-and-pr-mentions/desktop.png",
+      "mobile": "output/playwright/section-previews/home-v1/reviews-and-pr-mentions/mobile.png"
+    }
+  }
+}

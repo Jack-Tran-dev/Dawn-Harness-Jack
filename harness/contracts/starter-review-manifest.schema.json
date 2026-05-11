@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/starter-review-manifest.schema.json",
+  "title": "Starter Review Manifest",
+  "type": "object",
+  "required": [
+    "pageKey",
+    "sections"
+  ],
+  "properties": {
+    "pageKey": {
+      "type": "string"
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "templateSectionId",
+          "sectionFile"
+        ]
+      }
+    }
+  }
+}

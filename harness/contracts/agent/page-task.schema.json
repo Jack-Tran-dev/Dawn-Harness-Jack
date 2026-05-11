@@ -1,0 +1,204 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness/contracts/agent/page-task.schema.json",
+  "title": "Shopify Theme Page Task",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pageKey",
+    "profile",
+    "surfaceType",
+    "sharedSurfaceKeys",
+    "pageDispatchPath",
+    "pageVerificationPath",
+    "deliveryTemplatePath",
+    "pageBundlePath",
+    "pageRetryLedgerPath",
+    "retryPolicy",
+    "fidelity",
+    "reviewManifestPath",
+    "runtimeProfilePath",
+    "preview",
+    "sections"
+  ],
+  "properties": {
+    "pageKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "type": "string",
+      "enum": ["kik"]
+    },
+    "surfaceType": {
+      "type": "string",
+      "enum": ["page", "product", "cart", "global"]
+    },
+    "sharedSurfaceKeys": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "pageDispatchPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pageVerificationPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deliveryTemplatePath": {
+      "type": ["string", "null"],
+      "minLength": 1
+    },
+    "pageBundlePath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pageRetryLedgerPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "retryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxAttemptsPerSection"],
+      "properties": {
+        "maxAttemptsPerSection": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "sectionExecution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["excludeSectionIds"],
+      "properties": {
+        "excludeSectionIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "fidelity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "ignoreImageContent", "requireExplicitLayoutReview"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["standard", "css-1-to-1"]
+        },
+        "ignoreImageContent": {
+          "type": "boolean"
+        },
+        "requireExplicitLayoutReview": {
+          "type": "boolean"
+        }
+      }
+    },
+    "reviewManifestPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtimeProfilePath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "preview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["template", "url", "configPath", "routeKey"],
+      "properties": {
+        "template": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "configPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "routeKey": {
+          "type": "string",
+          "enum": ["pagePreviewUrl", "productPreviewUrl", "cartPreviewUrl"]
+        }
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sectionId",
+          "sectionKey",
+          "templateSectionId",
+          "starterSectionPath",
+          "expectedResultPath",
+          "desktopBundlePath",
+          "mobileBundlePath",
+          "captureSlots"
+        ],
+        "properties": {
+          "sectionId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sectionKey": {
+            "type": "string",
+            "minLength": 1
+          },
+          "templateSectionId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "starterSectionPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expectedResultPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sectionTaskPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "desktopBundlePath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mobileBundlePath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "desktopDetailPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "mobileDetailPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "captureSlots": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

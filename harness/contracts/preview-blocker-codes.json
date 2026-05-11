@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/preview-blocker-codes.json",
+  "schemaVersion": "1.0.0",
+  "description": "Stable agent-readable codes for everything that can stop verify-section-preview from producing a storefront-render artifact. Returned by inspect-bootstrap and verify-section-preview preflight; quoted in section-result.openIssues. agentFixable=true codes MUST be self-remediated by the implementing agent before delivering a section result; only agentFixable=false codes are legitimate `status: \"blocked\"` reasons.",
+  "codes": [
+    {
+      "code": "PREVIEW_BROWSER_CONFIG_MISSING",
+      "agentFixable": true,
+      "summary": "harness/config/browser-verification.json does not exist.",
+      "remediation": "make bootstrap-kik-theme (writes the file using the storefront block from harness/config/agent-tools.json)."
+    },
+    {
+      "code": "PREVIEW_NODE_MODULES_MISSING",
+      "agentFixable": true,
+      "summary": "node_modules is absent or out of sync with pnpm-lock.yaml.",
+      "remediation": "pnpm install --frozen-lockfile (or `pnpm install` if no lockfile exists yet)."
+    },
+    {
+      "code": "PREVIEW_BUILD_ASSETS_STALE",
+      "agentFixable": true,
+      "summary": "assets/kik-theme.css or assets/kik-component.js is missing or older than its src/ entry.",
+      "remediation": "pnpm build."
+    },
+    {
+      "code": "PREVIEW_RUNTIME_DEP_MISSING",
+      "agentFixable": true,
+      "summary": "An npm package required by one of this page's sections (per harness/contracts/section-runtime-deps.json) is not in node_modules.",
+      "remediation": "Run the `pnpm add` command emitted by inspect-bootstrap.remediationCommands; the matrix entry is keyed by `<pattern>/<defaultImplementation>`."
+    },
+    {
+      "code": "PREVIEW_STOREFRONT_NOT_RUNNING",
+      "agentFixable": true,
+      "summary": "Nothing is listening on the storefront dev port.",
+      "remediation": "node ./scripts/agent/storefront-dev.mjs start."
+    },
+    {
+      "code": "PREVIEW_PORT_IN_USE_BY_FOREIGN_PROCESS",
+      "agentFixable": false,
+      "summary": "A non-Shopify process is bound to the storefront dev port and the configured portFallback strategy is `kill-shopify-only`.",
+      "remediation": "Free the port manually, switch portFallback.strategy to `increment`, or change storefront.devUrl in harness/config/agent-tools.json."
+    },
+    {
+      "code": "PREVIEW_STOREFRONT_PASSWORD_REJECTED",
+      "agentFixable": false,
+      "summary": "shopify theme dev returned 401/302-to-password after password was supplied.",
+      "remediation": "Verify storefront.password in harness/config/agent-tools.json against the storefront's current password (Online Store → Preferences → Password page)."
+    },
+    {
+      "code": "PREVIEW_STOREFRONT_5XX",
+      "agentFixable": false,
+      "summary": "The storefront dev server is reachable but returned a 5xx for the section preview route.",
+      "remediation": "Inspect tmp/storefront-dev.log; the section may have a Liquid syntax error or theme-check failure — fix the section, then re-run."
+    },
+    {
+      "code": "PREVIEW_AGENT_TOOLS_SERVER_UNREACHABLE",
+      "agentFixable": false,
+      "summary": "harness/config/agent-tools.json#toolServer.baseUrl is unreachable; shop-context lookups and image upload cannot run.",
+      "remediation": "Start the agent-tools server, or unset capabilities that depend on it; this code only fires when the section actually needs shop context or image upload."
+    }
+  ]
+}

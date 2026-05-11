@@ -1,0 +1,366 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness/contracts/agent/section-result.schema.json",
+  "title": "Shopify Theme Section Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sectionId",
+    "status",
+    "changedFiles",
+    "summary",
+    "verification",
+    "templateContribution",
+    "implementationDecision",
+    "commandsRun",
+    "openIssues",
+    "needsMainAgentVerification"
+  ],
+  "properties": {
+    "sectionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["completed", "partial", "blocked"],
+      "description": "completed/partial/blocked. Decision tree (predicates evaluated in order, first match wins) lives in harness/contracts/agent/section-status-decision.md and is normative. In particular: agentFixable=true codes from harness/contracts/preview-blocker-codes.json (missing bootstrap, missing deps, stale build, missing runtime dep, storefront not running) MUST be self-remediated by the implementing agent and are NOT legitimate `blocked` reasons."
+    },
+    "changedFiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "summary",
+        "checks"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["self-check-passed", "needs-main-agent", "failed"]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "desktopReviewed",
+            "mobileReviewed",
+            "schemaDerived",
+            "runtimeSlotPreserved",
+            "utilityMarkupUsed",
+            "sharedCssPolicyRespected"
+          ],
+          "properties": {
+            "desktopReviewed": {
+              "type": "boolean"
+            },
+            "mobileReviewed": {
+              "type": "boolean"
+            },
+            "schemaDerived": {
+              "type": "boolean"
+            },
+            "runtimeSlotPreserved": {
+              "type": "boolean"
+            },
+            "utilityMarkupUsed": {
+              "type": "boolean"
+            },
+            "sharedCssPolicyRespected": {
+              "type": "boolean"
+            },
+            "interactionWired": {
+              "type": "boolean"
+            },
+            "customElementUsed": {
+              "type": "boolean"
+            },
+            "sectionPreviewRendered": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "templateContribution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sectionType",
+        "settings"
+      ],
+      "properties": {
+        "sectionType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "settings": {
+          "type": "object"
+        },
+        "blocks": {
+          "type": "object"
+        },
+        "block_order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "disabled": {
+          "type": "boolean"
+        }
+      }
+    },
+    "sectionPreview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "templatePath",
+        "view",
+        "previewUrl",
+        "artifactPath",
+        "figmaBaselines",
+        "runtimeScreenshots"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pending-human-review", "passed", "failed", "blocked"]
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["storefront-render", "offline-snapshot"],
+          "description": "How the runtime screenshots were produced. storefront-render is verify-section-preview against a running Shopify theme; offline-snapshot is verify-section-preview-offline against a static preview HTML."
+        },
+        "templatePath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "view": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previewUrl": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifactPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "figmaBaselines": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["desktop", "mobile"],
+          "properties": {
+            "desktop": {
+              "type": ["string", "null"]
+            },
+            "mobile": {
+              "type": ["string", "null"]
+            }
+          }
+        },
+        "runtimeScreenshots": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["desktop", "mobile"],
+          "properties": {
+            "desktop": {
+              "type": "string",
+              "minLength": 1
+            },
+            "mobile": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "assetUploads": {
+      "type": "array",
+      "description": "Assets uploaded to Shopify Files via POST /v1/sync-jobs (typically REST asset candidates from design-assets/manifest.json). Recorded so verify-section-implementation can audit upload provenance and so re-runs of page assembly can resolve setting values without re-uploading.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetId",
+          "sha256",
+          "shopifyFileId",
+          "shopifyUrl",
+          "settingId",
+          "settingValue"
+        ],
+        "properties": {
+          "assetId": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Stable identifier from design-assets/manifest.json#/assets/*/assetId."
+          },
+          "sourcePath": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Repo-relative path to the source asset that was uploaded."
+          },
+          "mimeType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Content sha256 of the uploaded bytes. Allows verify to confirm the upload matches the REST asset candidate."
+          },
+          "shopifyFileId": {
+            "type": ["string", "null"],
+            "description": "MediaImage GID returned by Shopify Files (e.g. gid://shopify/MediaImage/123). Null when the upload failed."
+          },
+          "shopifyUrl": {
+            "type": ["string", "null"],
+            "description": "CDN URL returned by Shopify Files."
+          },
+          "alt": {
+            "type": ["string", "null"]
+          },
+          "settingId": {
+            "type": ["string", "null"],
+            "description": "templateContribution.settings key this upload backs. Null when the upload was skipped or only retained as a candidate."
+          },
+          "settingValue": {
+            "type": ["string", "null"],
+            "description": "Recommended templateContribution.settings value for image_picker fields. Use the literal shopify://files/<filename> form so page assembly does not have to translate between MediaImage GIDs and theme JSON references."
+          },
+          "syncJobId": {
+            "type": ["string", "null"],
+            "description": "POST /v1/sync-jobs job id that produced the upload. Null when the upload was retained as a candidate without being run."
+          },
+          "skippedReason": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Set when the asset was retained as a candidate but not uploaded; for example a layered Figma fill that the implementation did not need."
+          }
+        }
+      }
+    },
+    "implementationDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "themeCodeReuse",
+        "styleStrategy",
+        "sharedStyleChange"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["none", "swiper", "scroll-snap", "custom"]
+        },
+        "themeCodeReuse": {
+          "type": "string",
+          "enum": ["avoided", "reused"]
+        },
+        "styleStrategy": {
+          "type": "string",
+          "enum": ["tailwind-utilities-primary", "custom-css-primary"]
+        },
+        "sharedStyleChange": {
+          "type": "string",
+          "enum": ["none", "shared-exception"]
+        },
+        "exceptionReason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sharedStyleExceptionReason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "commandsRun": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "openIssues": {
+      "type": "array",
+      "description": "Free-text issues that need follow-up. When an issue maps to a stable preview-blocker code, the entry SHOULD be prefixed with the code from harness/contracts/preview-blocker-codes.json followed by ': ' — e.g. \"PREVIEW_STOREFRONT_PASSWORD_REJECTED: storefront password rejected by 127.0.0.1:9292\". The decision tree in harness/contracts/agent/section-status-decision.md inspects this prefix to enforce that agentFixable=true codes do not co-occur with status=blocked.",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "needsMainAgentVerification": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "preview_render",
+          "theme_check",
+          "runtime_capture_sync",
+          "runtime_verify",
+          "page_level_layout_review"
+        ]
+      }
+    },
+    "notesAcknowledged": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Proof that the implementing agent read harness/notes/<page-key>.json before writing this result. Required by section-result-validation when a matching notes entry exists; absence is treated as either 'no notes file' (acceptable, must be recorded in openIssues) or 'agent skipped notes' (a policy violation).",
+      "required": ["path", "sha256", "sectionId"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Repo-relative path of the notes file the agent read."
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "Content sha256 of the notes file at read time. Validation re-hashes the on-disk file and rejects if it has drifted, so an agent cannot claim notes acknowledgement against stale content."
+        },
+        "sectionId": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Section id within the notes file that the agent acknowledged. Must match section-result.sectionId."
+        },
+        "agentPrompt": {
+          "type": ["string", "null"],
+          "description": "Verbatim copy of notes.sections[*].agentPrompt for this section, mirrored to make the section-result self-contained for reviewers. Null when the notes entry has no agentPrompt."
+        },
+        "implementationPolicy": {
+          "type": ["object", "null"],
+          "description": "Verbatim mirror of notes.sections[*].implementationPolicy. Null when the notes entry does not override implementation policy.",
+          "additionalProperties": false,
+          "properties": {
+            "pattern": { "type": "string" },
+            "defaultImplementation": { "type": "string" },
+            "repeatedContentSource": { "type": "string" },
+            "themeCodeReuse": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

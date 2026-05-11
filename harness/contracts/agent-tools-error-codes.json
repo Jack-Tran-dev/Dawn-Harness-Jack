@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness/contracts/agent-tools-error-codes.json",
+  "title": "Shopify Theme Harness Agent-Tools Error Codes",
+  "description": "Stable agent-readable codes for the Shopify agent-tool server documented in harness/config/agent-tools.example.json. The agent should match a server response by status + message regex (compiled with the supplied flags) and quote the resulting code in section-result.openIssues so reviewers can triage without rereading server logs.",
+  "version": "1.0.0",
+  "matchSyntax": {
+    "language": "ECMAScript",
+    "note": "messageMatch is a JavaScript regex source string. Compile with `new RegExp(messageMatch, flags)` where `flags` defaults to \"i\" for case-insensitive matching."
+  },
+  "codes": [
+    {
+      "code": "AGENT_TOOLS_MISSING_BEARER",
+      "httpStatus": 401,
+      "messageMatch": "unauthorized",
+      "flags": "i",
+      "appliesTo": ["shopContext", "syncJobs"],
+      "summary": "Request did not include an Authorization: Bearer <export-token> header.",
+      "remediation": "Set the env var named by toolServer.auth.tokenEnv (typically SHOPIFY_AGENT_TOOL_TOKEN) to the plaintext export token issued by the server, then re-run."
+    },
+    {
+      "code": "AGENT_TOOLS_INVALID_EXPORT_TOKEN",
+      "httpStatus": 401,
+      "messageMatch": "invalid export token",
+      "flags": "i",
+      "appliesTo": ["tokenResolve", "shopContext", "syncJobs"],
+      "summary": "Bearer token's sha256 does not match any row in the server's ExportToken table. Common cause: agent set the token env var to the tokenHash column rather than the plaintext value the server printed at issuance.",
+      "remediation": "Have a maintainer issue (or rotate) an export token via the server admin path and copy the printed plaintext into the env var. Do not paste the tokenHash column from the database."
+    },
+    {
+      "code": "AGENT_TOOLS_SHOPIFY_SCOPE_NOT_APPROVED",
+      "httpStatus": 403,
+      "messageMatch": "approve the updated shopify app scopes",
+      "flags": "i",
+      "appliesTo": ["shopContext"],
+      "summary": "Server rejected fetching shop context because the bound store has not approved the Shopify app scopes the server requires.",
+      "remediation": "Have a Shopify admin reinstall or reauthorize the app on the bound store. The agent should not retry until the maintainer confirms scope approval; section work that does not need shop context can proceed."
+    },
+    {
+      "code": "AGENT_TOOLS_MULTIPART_MANIFEST_INVALID",
+      "httpStatus": 400,
+      "messageMatch": "multipart sync upload (manifest is invalid|is missing the manifest field)",
+      "flags": "i",
+      "appliesTo": ["syncJobs"],
+      "summary": "The multipart upload's `manifest` form field was missing or did not parse to {assets: [...]} with a fileField pointing at each attached file.",
+      "remediation": "Send the manifest as a plain text form field (no `;type=application/json` content-type override), with shape {\"assets\":[{\"assetId\":\"...\",\"filename\":\"...\",\"mimeType\":\"...\",\"alt\":\"...\",\"fileField\":\"file_<n>\"}]}, then attach each file under the same fileField name."
+    },
+    {
+      "code": "AGENT_TOOLS_MULTIPART_FIELD_NOT_VALID_JSON",
+      "httpStatus": 400,
+      "messageMatch": "a request field is not a valid JSON as declared by its Content-Type",
+      "flags": "i",
+      "appliesTo": ["syncJobs"],
+      "summary": "Fastify's multipart parser tried to JSON-parse the manifest field because the client labelled it as application/json. The current server expects the manifest as a plain text field.",
+      "remediation": "Drop the `;type=application/json` (or any explicit content-type) on the manifest form field; pass it as plain text. Example: `curl -F 'manifest={...}' -F 'file_desktop=@./asset.png;type=image/png' ...`."
+    },
+    {
+      "code": "AGENT_TOOLS_ASSET_TOO_LARGE",
+      "httpStatus": 400,
+      "messageMatch": "exceeds max upload bytes",
+      "flags": "i",
+      "appliesTo": ["syncJobs"],
+      "summary": "One of the attached files exceeded the server's MAX_UPLOAD_BYTES (default 15 MB).",
+      "remediation": "Re-export the asset at a smaller size, split into multiple uploads, or have the maintainer raise MAX_UPLOAD_BYTES on the server."
+    },
+    {
+      "code": "AGENT_TOOLS_ROUTE_NOT_FOUND",
+      "httpStatus": 404,
+      "messageMatch": "route .* not found",
+      "flags": "i",
+      "appliesTo": ["tokenResolve", "shopContext", "syncJobs", "syncJob", "syncJobEvents"],
+      "summary": "The agent hit an undocumented endpoint, often by guessing a path the server does not implement (e.g. /files/upload, /shop, /tools).",
+      "remediation": "Use only the paths declared by toolServer.routes in harness/config/agent-tools.json; do not invent paths. If a needed route is missing, treat it as a server upgrade ask and report it as a blocker rather than guessing."
+    }
+  ]
+}

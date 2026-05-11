@@ -1,0 +1,11 @@
+{
+  "pageKey": "home-v1",
+  "sectionId": "why-pococo-section",
+  "templateSectionId": "why_pococo_section",
+  "sectionType": "kik-why-pococo-section",
+  "routeKey": "pagePreviewUrl",
+  "view": "kik-section-home-v1-why-pococo-section",
+  "templatePath": "templates/index.kik-section-home-v1-why-pococo-section.json",
+  "previewUrl": "http://127.0.0.1:9292/?view=kik-section-home-v1-why-pococo-section",
+  "status": "created"
+}

@@ -1,0 +1,14 @@
+{
+  "pagePreviewUrl": "http://127.0.0.1:9292/?view=kik-preview",
+  "productPreviewUrl": "http://127.0.0.1:9292/products/example-product?view=kik-preview",
+  "cartPreviewUrl": "http://127.0.0.1:9292/cart?view=kik-preview",
+  "storefrontPassword": "",
+  "desktopViewport": {
+    "width": 1440,
+    "height": 2200
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 1600
+  }
+}

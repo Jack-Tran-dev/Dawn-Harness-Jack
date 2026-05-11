@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0.0",
+  "shopify": {
+    "storeDomain": "example.myshopify.com"
+  },
+  "storefront": {
+    "devUrl": "http://127.0.0.1:9292",
+    "password": null,
+    "themeId": null,
+    "portFallback": {
+      "strategy": "kill-shopify-only",
+      "incrementMax": 5
+    }
+  },
+  "toolServer": {
+    "baseUrl": "https://agent-tools.example.com",
+    "auth": {
+      "type": "bearer-env",
+      "tokenEnv": "SHOPIFY_AGENT_TOOL_TOKEN"
+    },
+    "capabilities": {
+      "shopContext": true,
+      "imageUpload": true
+    },
+    "routes": {
+      "tokenResolve": {
+        "method": "POST",
+        "path": "/v1/export-tokens/resolve",
+        "contentTypes": ["application/json"]
+      },
+      "shopContext": {
+        "method": "GET",
+        "path": "/v1/shop-context",
+        "auth": "bearer"
+      },
+      "syncJobs": {
+        "method": "POST",
+        "path": "/v1/sync-jobs",
+        "auth": "bearer",
+        "contentTypes": ["multipart/form-data", "application/json"]
+      },
+      "syncJob": {
+        "method": "GET",
+        "path": "/v1/sync-jobs/:jobId"
+      },
+      "syncJobEvents": {
+        "method": "GET",
+        "path": "/v1/sync-jobs/:jobId/events",
+        "response": "text/event-stream"
+      }
+    }
+  }
+}

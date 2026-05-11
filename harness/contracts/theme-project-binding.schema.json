@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/theme-project-binding.schema.json",
+  "title": "Theme Project Binding",
+  "type": "object",
+  "required": [
+    "captureSourceDir",
+    "capturePathStyle",
+    "pageKeys"
+  ],
+  "properties": {
+    "captureSourceDir": {
+      "type": "string"
+    },
+    "capturePathStyle": {
+      "type": "string",
+      "enum": [
+        "flat"
+      ]
+    },
+    "pageKeys": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

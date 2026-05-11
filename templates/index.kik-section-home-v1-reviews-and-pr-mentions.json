@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "reviews_and_pr_mentions": {
+      "type": "kik-reviews-and-pr-mentions",
+      "settings": {
+        "aria_label": "Reviews and press mentions",
+        "review_rating": "4.7/5",
+        "review_count_label": "from 1,300+ reviews",
+        "review_subtitle": "Loved for bedtime, relaxation, and room ambiance.",
+        "pr_eyebrow": "AS FEATURED IN"
+      },
+      "blocks": {
+        "logo_associated_press": {
+          "type": "pr_logo",
+          "settings": {
+            "alt": "Associated Press"
+          }
+        },
+        "logo_yahoo": {
+          "type": "pr_logo",
+          "settings": {
+            "alt": "Yahoo!"
+          }
+        },
+        "logo_cbs": {
+          "type": "pr_logo",
+          "settings": {
+            "alt": "CBS"
+          }
+        },
+        "logo_nbc": {
+          "type": "pr_logo",
+          "settings": {
+            "alt": "NBC"
+          }
+        },
+        "logo_abc_news": {
+          "type": "pr_logo",
+          "settings": {
+            "alt": "ABC News"
+          }
+        },
+        "logo_ktxl": {
+          "type": "pr_logo",
+          "settings": {
+            "alt": "KTXL"
+          }
+        }
+      },
+      "block_order": [
+        "logo_associated_press",
+        "logo_yahoo",
+        "logo_cbs",
+        "logo_nbc",
+        "logo_abc_news",
+        "logo_ktxl"
+      ]
+    }
+  },
+  "order": [
+    "reviews_and_pr_mentions"
+  ]
+}

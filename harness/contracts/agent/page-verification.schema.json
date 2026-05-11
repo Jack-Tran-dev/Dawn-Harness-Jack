@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness/contracts/agent/page-verification.schema.json",
+  "title": "Shopify Theme Page Verification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pageKey",
+    "profile",
+    "retryLedgerPath",
+    "sectionResults",
+    "commandsRun",
+    "previewVerified",
+    "sectionImplementationVerified",
+    "layoutReviewPassed",
+    "themeCheckPassed",
+    "runtimeInspectPassed",
+    "runtimeVerifyPassed",
+    "blockedSections",
+    "openIssues",
+    "status"
+  ],
+  "properties": {
+    "pageKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "profile": {
+      "type": "string",
+      "enum": ["kik"]
+    },
+    "retryLedgerPath": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sectionResults": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "commandsRun": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "previewVerified": {
+      "type": "boolean"
+    },
+    "sectionImplementationVerified": {
+      "type": "boolean"
+    },
+    "layoutReviewPassed": {
+      "type": "boolean"
+    },
+    "themeCheckPassed": {
+      "type": "boolean"
+    },
+    "runtimeInspectPassed": {
+      "type": "boolean"
+    },
+    "runtimeVerifyPassed": {
+      "type": "boolean"
+    },
+    "blockedSections": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "openIssues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["passed", "blocked", "failed"]
+    }
+  }
+}

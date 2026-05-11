@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness/contracts/section-notes.schema.json",
+  "title": "Shopify Theme Section Notes",
+  "description": "Per-page human-authored annotations for section implementation. Lives at harness/notes/<page-key>.json, sibling-discovered by the page-key carried in the source-manifest. Section agents must read it before implementing; harness validation enforces that declared interaction patterns are matched by the actual implementation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "manifestType", "pageKey", "sections"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "manifestType": {
+      "type": "string",
+      "const": "section-notes"
+    },
+    "pageKey": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Must match the source-manifest figmaPage.id and the file's basename (harness/notes/<pageKey>.json)."
+    },
+    "sourceManifestPath": {
+      "type": "string",
+      "pattern": "^figma/[a-z][a-z0-9-]*/source-manifest\\.json$",
+      "description": "Optional. Repo-relative path to the matching figma/<page-key>/source-manifest.json so reviewers can navigate from notes back to source."
+    },
+    "sections": {
+      "type": "array",
+      "description": "Sparse: only sections that need a human override or prompt need an entry. Sections absent from this array fall back to source-manifest defaults.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Must match a section id in the source-manifest."
+          },
+          "implementationPolicy": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Human override. Wins over source-manifest.implementationPolicy when present.",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "enum": ["static", "carousel", "tabs", "accordion", "custom"]
+              },
+              "defaultImplementation": {
+                "type": "string",
+                "enum": ["none", "swiper", "scroll-snap", "custom"]
+              },
+              "repeatedContentSource": {
+                "type": "string",
+                "enum": ["settings", "blocks"]
+              },
+              "themeCodeReuse": {
+                "type": "string",
+                "enum": ["avoid", "allow"]
+              }
+            }
+          },
+          "skillRoutingOverride": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["recommendedSkill"],
+            "properties": {
+              "recommendedSkill": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Repo-relative skill path. Use to force a section onto a different skill than source-manifest's classifier picked."
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "agentPrompt": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Free-form human-authored prompt for the implementing agent. The agent must read it verbatim, mirror it into section-task.brief, and reference its sha256 in section-result.notesAcknowledged. The agent is not allowed to paraphrase or shorten."
+          },
+          "humanNotes": {
+            "type": "array",
+            "description": "Provenance / explanatory bullets for future readers. Agent reads but does not act on.",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

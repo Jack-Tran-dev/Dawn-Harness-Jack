@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "manifestType": "section-notes",
+  "pageKey": "home-v1",
+  "sourceManifestPath": "figma/home-v1/source-manifest.json",
+  "sections": [
+    {
+      "id": "hero-section",
+      "implementationPolicy": {
+        "pattern": "carousel",
+        "defaultImplementation": "swiper",
+        "repeatedContentSource": "blocks",
+        "themeCodeReuse": "avoid"
+      },
+      "skillRoutingOverride": {
+        "recommendedSkill": "skills/theme/implement-section-from-figma/SKILL.md",
+        "reason": "Force the static section skill even when the manifest classified this section differently."
+      },
+      "agentPrompt": "Implement this section as a 3-slide Swiper carousel with arrows below the slide track. Use blocks for the slides; do not bake content into settings.",
+      "humanNotes": [
+        "Example file showing every override field. Runtime ignores *.example.json — only <page-key>.json is loaded.",
+        "Copy fields you actually want into harness/notes/<page-key>.json under the same section id.",
+        "implementationPolicy.pattern is enforced by section-result-validation: a 'carousel' pattern requires the implementation to use Swiper / scroll-snap / custom code, not static markup."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "@tailwindcss/postcss": "^4.2.1",
+    "concurrently": "^9.2.1",
+    "playwright": "^1.59.1",
+    "shopify-theme-harness": "^0.1.21",
+    "tailwindcss": "^4.2.1",
+    "vite": "^7.3.1"
+  },
+  "scripts": {
+    "bootstrap:kik-theme": "make bootstrap-kik-theme",
+    "sync:kik-tokens": "make sync-kik-tokens",
+    "init:kik-theme": "make init-kik-theme",
+    "inspect:project": "node ./scripts/inspect/inspect-project.mjs",
+    "inspect:harness": "node ./scripts/inspect/inspect-harness.mjs",
+    "inspect:runtime": "node ./scripts/inspect/inspect-runtime.mjs",
+    "resolve:page-key": "node ./scripts/agent/resolve-page-key.mjs",
+    "assemble:page-templates": "node ./scripts/agent/assemble-page-templates.mjs",
+    "create:section-preview": "node ./scripts/agent/create-section-preview.mjs",
+    "assert:page-acceptance": "node ./scripts/agent/assert-page-acceptance.mjs",
+    "verify:page-preview": "node ./scripts/agent/verify-page-preview.mjs",
+    "verify:section-preview": "node ./scripts/agent/verify-section-preview.mjs",
+    "verify:section-preview-offline": "node ./scripts/agent/verify-section-preview-offline.mjs",
+    "notes:init": "node ./scripts/agent/init-section-notes.mjs",
+    "verify:section-implementation": "node ./scripts/verify/verify-section-implementation.mjs",
+    "prepare:page-dispatch": "node ./scripts/agent/prepare-page-dispatch.mjs",
+    "run:page-dispatch": "node ./scripts/agent/run-page-dispatch.mjs",
+    "build:page-verification": "node ./scripts/agent/build-page-verification.mjs",
+    "figma:extract-assets": "node ./scripts/figma/extract-assets.mjs",
+    "sync:runtime-captures": "node ./scripts/runtime/sync-runtime-captures.mjs",
+    "verify:harness": "node ./scripts/verify/verify-harness.mjs",
+    "verify:runtime": "node ./scripts/verify/verify-runtime.mjs",
+    "compile:starter": "node ./harness/compiler/compile-theme-starter.mjs",
+    "inspect:bootstrap": "node ./scripts/inspect/inspect-bootstrap.mjs",
+    "storefront-dev:start": "node ./scripts/agent/storefront-dev.mjs start",
+    "storefront-dev:stop": "node ./scripts/agent/storefront-dev.mjs stop",
+    "storefront-dev:status": "node ./scripts/agent/storefront-dev.mjs status",
+    "storefront-dev:restart": "node ./scripts/agent/storefront-dev.mjs restart",
+    "dev": "concurrently -k -n theme,css,js \"shopify theme dev -e this --host 127.0.0.1 --port 9292\" \"pnpm dev:css\" \"pnpm dev:js\"",
+    "dev:css": "tailwindcss -i src/input.css -o assets/kik-theme.css --watch",
+    "dev:js": "vite build --watch --mode development",
+    "build": "pnpm build:css && pnpm build:js",
+    "build:css": "tailwindcss -i src/input.css -o assets/kik-theme.css --minify",
+    "build:js": "vite build --mode production"
+  },
+  "name": "kikstart-dev-plus-store-kik-theme",
+  "private": true,
+  "version": "0.1.0",
+  "dependencies": {
+    "swiper": "^11.2.10"
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shopify-theme-harness.local/contracts/figma-assets-manifest.schema.json",
+  "title": "Figma Assets Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "manifestType",
+    "createdAt",
+    "producer",
+    "sourceManifestPath",
+    "figma",
+    "assets"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "manifestType": {
+      "type": "string",
+      "const": "figma-assets-manifest"
+    },
+    "createdAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "producer": {
+      "type": "string",
+      "const": "figma-rest-asset-extractor"
+    },
+    "sourceManifestPath": {
+      "type": "string",
+      "pattern": "^figma/[a-z][a-z0-9-]*/source-manifest\\.json$",
+      "description": "Repo-relative path to the source manifest. Must match figma/<page-key>/source-manifest.json."
+    },
+    "figma": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fileKey", "apiBase"],
+      "properties": {
+        "fileKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "apiBase": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/asset"
+      }
+    }
+  },
+  "$defs": {
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assetId",
+        "kind",
+        "sourceNodeId",
+        "sourceNodeName",
+        "sourceBreakpoint",
+        "sourceSectionId",
+        "figma",
+        "path",
+        "mimeType",
+        "sha256",
+        "usage"
+      ],
+      "properties": {
+        "assetId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["image-fill", "node-render", "svg"]
+        },
+        "sourceNodeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceNodeName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceBreakpoint": {
+          "type": "string",
+          "enum": ["desktop", "mobile"]
+        },
+        "sourceSectionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "figma": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["fileKey", "nodeId"],
+          "properties": {
+            "fileKey": {
+              "type": "string",
+              "minLength": 1
+            },
+            "nodeId": {
+              "type": "string",
+              "minLength": 1
+            },
+            "imageRef": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mimeType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:.+"
+        },
+        "usage": {
+          "type": "string",
+          "enum": [
+            "shopify-native-data",
+            "static-theme-asset",
+            "shopify-file-upload",
+            "visual-reference"
+          ]
+        },
+        "width": {
+          "type": "number"
+        },
+        "height": {
+          "type": "number"
+        },
+        "alt": {
+          "type": "string"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

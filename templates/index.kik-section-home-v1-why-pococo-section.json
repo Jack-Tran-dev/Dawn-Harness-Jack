@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "why_pococo_section": {
+      "type": "kik-why-pococo-section",
+      "settings": {
+        "aria_label": "Why Pococo",
+        "heading": "Why Pococo Feels Different at Night",
+        "body": "Designed to help you create a calmer room, reduce screen time, and ease into rest."
+      },
+      "blocks": {
+        "card_no_app": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/why-pococo-card-no-app.png",
+            "title": "No App. No Phone. No Bedtime Scrolling.",
+            "body": "Control everything with three simple buttons — power, rotate, and timer. No Wi‑Fi, no setup, no notifications.",
+            "alt": "Pococo projector close-up showing three physical buttons"
+          }
+        },
+        "card_softer_unwind": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/why-pococo-card-softer-unwind.png",
+            "title": "Create a Softer Way to Unwind",
+            "body": "Fill your ceiling and walls with slow-moving celestial scenes that help your room feel quieter and more peaceful.",
+            "alt": "Person relaxing in a bedroom while celestial scenes are projected on the wall"
+          }
+        },
+        "card_realistic_stars": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/why-pococo-card-realistic-stars.png",
+            "title": "Realistic Stars, Not Laser Dots",
+            "body": "Pococo uses projection discs with detailed cosmic scenes, giving your room a more immersive night-sky experience.",
+            "alt": "Detailed moon phases projected across a bedroom wall"
+          }
+        },
+        "card_soft_light": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/why-pococo-card-soft-light.png",
+            "title": "Soft Light That Won’t Take Over the Room",
+            "body": "Gentle, indirect projection creates ambiance without harsh brightness, making it easier to relax before sleep.",
+            "alt": "Children inside a fort lit softly by Pococo projection"
+          }
+        }
+      },
+      "block_order": [
+        "card_no_app",
+        "card_softer_unwind",
+        "card_realistic_stars",
+        "card_soft_light"
+      ]
+    }
+  },
+  "order": [
+    "why_pococo_section"
+  ]
+}

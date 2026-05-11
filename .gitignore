@@ -1,0 +1,21 @@
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.shopify
+node_modules/
+design-assets/
+assets/*.map
+tmp/storefront-dev.pid
+tmp/storefront-dev.port
+tmp/storefront-dev.json
+tmp/storefront-dev.log
+design-assets/
+output/
+.playwright/
+.playwright-cli/
