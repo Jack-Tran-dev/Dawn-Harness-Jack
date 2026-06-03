@@ -19,3 +19,4 @@ design-assets/
 output/
 .playwright/
 .playwright-cli/
+shopify.theme.toml
