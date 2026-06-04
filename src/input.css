@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 @layer theme, base, components, utilities;
 
@@ -18,7 +18,7 @@
 }
 
 :root {
-  --kik-font-family-sans: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --kik-font-family-sans: "Poppins", "Helvetica Neue", Arial, sans-serif;
   --kik-text-line-height-tight: 1.2;
   --kik-text-line-height-body: 1.6;
   --kik-text-weight-semibold: 600;
@@ -75,8 +75,8 @@
   --kik-spacing-section-sm: 32px;
   --kik-spacing-sm: 4px;
   --kik-spacing-xl: 24px;
-  --kik-text-font-body: 'Funnel Sans', sans-serif;
-  --kik-text-font-heading: 'Satoshi', sans-serif;
+  --kik-text-font-body: "Poppins", sans-serif;
+  --kik-text-font-heading: "Poppins", sans-serif;
   --kik-text-size-body-lg: 16px;
   --kik-text-size-body-md: 14px;
   --kik-text-size-body-sm: 12px;

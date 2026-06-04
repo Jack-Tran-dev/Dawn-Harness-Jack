@@ -206,12 +206,12 @@
       "desktop": "32px"
     },
     "--kik-text-font-body": {
-      "mobile": "Funnel Sans",
-      "desktop": "Funnel Sans"
+      "mobile": "Poppins",
+      "desktop": "Poppins"
     },
     "--kik-text-font-heading": {
-      "mobile": "Satoshi",
-      "desktop": "Satoshi"
+      "mobile": "Poppins",
+      "desktop": "Poppins"
     },
     "--kik-text-size-body-lg": {
       "mobile": "16px",

@@ -61,8 +61,8 @@
     --kik-text-size-h2: 36px;
     --kik-text-size-h1: 44px;
     /* string */
-    --kik-text-font-body: Funnel Sans;
-    --kik-text-font-heading: Satoshi;
+    --kik-text-font-body: Poppins;
+    --kik-text-font-heading: Poppins;
 }
 
 [data-theme="Mobile"] {
@@ -128,6 +128,6 @@
     --kik-text-size-h2: 32px;
     --kik-text-size-h1: 36px;
     /* string */
-    --kik-text-font-body: Funnel Sans;
-    --kik-text-font-heading: Satoshi;
+    --kik-text-font-body: Poppins;
+    --kik-text-font-heading: Poppins;
 }
