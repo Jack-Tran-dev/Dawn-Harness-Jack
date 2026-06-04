@@ -16,6 +16,14 @@
   endif
 
   assign heading_size = section.settings.heading_size | default: 'h2'
+
+  assign slide_count = 0
+  for block in section.blocks
+    if block.settings.image == blank and block.settings.title == blank and block.settings.text == blank and block.settings.link_label == blank
+      continue
+    endif
+    assign slide_count = slide_count | plus: 1
+  endfor
 -%}
 
 <div
@@ -45,12 +53,14 @@
       </div>
     {%- endunless -%}
 
-    <slider-component class="block w-full">
+    <kik-why-pococo-slider class="block w-full">
       <ul
         class="{{ list_classes }}"
         id="Slider-{{ section.id }}"
         role="list"
-        data-cols-mobile="{{ section.settings.columns_mobile }}"
+        {% unless show_mobile_slider %}
+          data-cols-mobile="{{ section.settings.columns_mobile }}"
+        {% endunless %}
         data-cols-desktop="{{ section.settings.columns_desktop }}"
       >
         {%- for block in section.blocks -%}
@@ -138,7 +148,7 @@
             <span class="slider-counter--current">1</span>
             <span aria-hidden="true"> / </span>
             <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
-            <span class="slider-counter--total">{{ section.blocks.size }}</span>
+            <span class="slider-counter--total">{{ slide_count }}</span>
           </div>
           <button
             type="button"
@@ -150,7 +160,7 @@
           </button>
         </div>
       {%- endif -%}
-    </slider-component>
+    </kik-why-pococo-slider>
 
     <div class="kik-why-pococo__footer{% if show_mobile_slider %} hidden md:flex{% endif %}">
       {%- if section.settings.button_label != blank -%}

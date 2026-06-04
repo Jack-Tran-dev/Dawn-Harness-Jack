@@ -310,16 +310,17 @@
     @apply md:grid-cols-6;
   }
 
-  .kik-why-pococo__list--slider {
-    @apply flex snap-x snap-mandatory overflow-x-auto scroll-smooth md:grid md:overflow-visible md:snap-none;
+  /* Combined selector beats [data-cols-mobile] grid so mobile swipe can scroll */
+  .kik-why-pococo__list.kik-why-pococo__list--slider {
+    @apply flex snap-x snap-mandatory overflow-x-auto scroll-smooth touch-pan-x max-md:[-webkit-overflow-scrolling:touch] md:grid md:overflow-visible md:snap-none;
   }
 
-  .kik-why-pococo__list--slider::after {
+  .kik-why-pococo__list.kik-why-pococo__list--slider::after {
     content: "";
     @apply w-4 shrink-0 md:hidden;
   }
 
-  .kik-why-pococo__list--slider .kik-why-pococo__item {
+  .kik-why-pococo__list.kik-why-pococo__list--slider .kik-why-pococo__item {
     @apply min-w-[calc(100%-2rem)] shrink-0 snap-start md:min-w-0 md:shrink;
   }
 
