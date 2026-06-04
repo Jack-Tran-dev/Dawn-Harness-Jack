@@ -75,8 +75,8 @@
   --kik-spacing-section-sm: 32px;
   --kik-spacing-sm: 4px;
   --kik-spacing-xl: 24px;
-  --kik-text-font-body: "Funnel Sans";
-  --kik-text-font-heading: "Satoshi";
+  --kik-text-font-body: 'Funnel Sans', sans-serif;
+  --kik-text-font-heading: 'Satoshi', sans-serif;
   --kik-text-size-body-lg: 16px;
   --kik-text-size-body-md: 14px;
   --kik-text-size-body-sm: 12px;
@@ -244,4 +244,203 @@
     margin-inline: auto;
     padding-inline: var(--kik-spacing-page-default);
   }
+
+  /* Kik Why Pococo */
+  .kik-why-pococo--no-heading .kik-why-pococo__intro {
+    @apply hidden;
+  }
+
+  .kik-why-pococo__intro {
+    @apply flex w-full flex-col items-center gap-md self-center text-center;
+  }
+
+  .kik-why-pococo__subheading {
+    @apply m-0 w-full font-sans text-body-md font-normal leading-[1.5] tracking-normal text-tertiary;
+  }
+
+  .kik-why-pococo__subheading.rte> :first-child {
+    @apply mt-0;
+  }
+
+  .kik-why-pococo__subheading.rte> :last-child {
+    @apply mb-0;
+  }
+
+  .kik-why-pococo__subheading.rte :where(p, li, a) {
+    @apply font-sans text-body-md font-normal leading-[1.5] tracking-normal text-tertiary;
+  }
+
+  .kik-why-pococo__subheading.rte p {
+    @apply m-0;
+  }
+
+  .kik-why-pococo__list {
+    @apply m-0 list-none gap-xl p-0;
+  }
+
+  .kik-why-pococo__list[data-cols-mobile="1"] {
+    @apply grid grid-cols-1;
+  }
+
+  .kik-why-pococo__list[data-cols-mobile="2"] {
+    @apply grid grid-cols-2;
+  }
+
+  .kik-why-pococo__list[data-cols-desktop="1"] {
+    @apply md:grid-cols-1;
+  }
+
+  .kik-why-pococo__list[data-cols-desktop="2"] {
+    @apply md:grid-cols-2;
+  }
+
+  .kik-why-pococo__list[data-cols-desktop="3"] {
+    @apply md:grid-cols-3;
+  }
+
+  .kik-why-pococo__list[data-cols-desktop="4"] {
+    @apply md:grid-cols-4;
+  }
+
+  .kik-why-pococo__list[data-cols-desktop="5"] {
+    @apply md:grid-cols-5;
+  }
+
+  .kik-why-pococo__list[data-cols-desktop="6"] {
+    @apply md:grid-cols-6;
+  }
+
+  .kik-why-pococo__list--slider {
+    @apply flex snap-x snap-mandatory overflow-x-auto scroll-smooth md:grid md:overflow-visible md:snap-none;
+  }
+
+  .kik-why-pococo__list--slider::after {
+    content: "";
+    @apply w-4 shrink-0 md:hidden;
+  }
+
+  .kik-why-pococo__list--slider .kik-why-pococo__item {
+    @apply min-w-[calc(100%-2rem)] shrink-0 snap-start md:min-w-0 md:shrink;
+  }
+
+  .kik-why-pococo__item {
+    @apply flex w-full min-w-0;
+  }
+
+  .kik-why-pococo__item--empty {
+    @apply hidden lg:block;
+  }
+
+  .kik-why-pococo__item:only-child {
+    @apply mx-auto;
+  }
+
+  .kik-why-pococo__card {
+    @apply relative box-border flex h-full w-full flex-col gap-lg rounded-[12px] bg-surface p-lg;
+  }
+
+  .kik-why-pococo__image-wrap {
+    @apply w-full;
+  }
+
+  .kik-why-pococo__media {
+    @apply relative block w-full overflow-hidden rounded-md bg-alt-2 max-md:h-auto max-md:aspect-[350/221.11] md:h-[187px];
+  }
+
+  .kik-why-pococo__media .kik-why-pococo__image {
+    @apply absolute inset-0 h-full w-full object-cover;
+  }
+
+  .kik-why-pococo .kik-why-pococo__column-text {
+    @apply m-0 w-full font-sans text-body-md font-normal not-italic leading-[1.5] tracking-normal text-tertiary;
+  }
+
+  .kik-why-pococo .kik-why-pococo__column-text.rte> :first-child {
+    @apply mt-0;
+  }
+
+  .kik-why-pococo .kik-why-pococo__column-text.rte> :last-child {
+    @apply mb-0;
+  }
+
+  .kik-why-pococo .kik-why-pococo__column-text.rte :where(p, li, a) {
+    @apply font-sans text-body-md font-normal leading-[1.5] tracking-normal text-tertiary;
+  }
+
+  .kik-why-pococo .kik-why-pococo__column-text.rte p {
+    @apply m-0;
+  }
+
+  .kik-why-pococo__body {
+    @apply m-0 flex flex-col gap-md p-0;
+  }
+
+  .kik-why-pococo__body--center {
+    @apply items-center text-center;
+  }
+
+  .kik-why-pococo__column-link {
+    @apply inline-flex items-center gap-2 font-sans text-body-md text-primary no-underline hover:underline;
+  }
+
+  .kik-why-pococo__footer {
+    @apply flex justify-center;
+  }
+
+  .kik-why-pococo__btn {
+    @apply inline-flex items-center justify-center rounded-pill border border-border-default bg-action-primary px-8 py-3 font-sans text-body-md font-medium text-inverse no-underline transition-colors hover:bg-action-primary-hover hover:text-primary;
+  }
+
+  .kik-why-pococo__slider-nav {
+    @apply mt-4 flex items-center justify-center gap-4 md:hidden;
+  }
+
+  .kik-why-pococo__slider-btn {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-subtle bg-surface text-primary;
+  }
+
+  .kik-why-pococo__slider-btn:disabled {
+    @apply cursor-not-allowed opacity-40;
+  }
+
+  .kik-why-pococo__slider-counter {
+    @apply font-sans text-body-sm text-tertiary;
+  }
+
+  .kik-why-pococo__title-link {
+    @apply font-sans text-body-md text-primary underline md:hidden;
+  }
+}
+
+/* Unlayered — beats Dawn base.css tag selectors */
+.kik-why-pococo h2.kik-why-pococo__title {
+  @apply m-0 w-full text-center font-heading text-h2 font-bold not-italic leading-[1.2] tracking-[-1px] text-primary;
+}
+
+.kik-why-pococo h2.kik-why-pococo__title--h1 {
+  @apply text-h1;
+}
+
+.kik-why-pococo h2.kik-why-pococo__title--h2 {
+  @apply text-h2;
+}
+
+.kik-why-pococo h2.kik-why-pococo__title--h3 {
+  @apply text-h3;
+}
+
+.kik-why-pococo h2.kik-why-pococo__title--h4 {
+  @apply text-h4;
+}
+
+.kik-why-pococo h2.kik-why-pococo__title--h5 {
+  @apply text-h5;
+}
+
+.kik-why-pococo h2.kik-why-pococo__title--h6 {
+  @apply text-h6;
+}
+
+.kik-why-pococo h5.kik-why-pococo__column-title {
+  @apply m-0 w-full font-heading text-h5 font-bold not-italic leading-[1.2] tracking-[-1px] text-primary;
 }
