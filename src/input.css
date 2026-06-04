@@ -274,54 +274,62 @@
     @apply m-0;
   }
 
+  /* Responsive columns: base (< sm) = mobile setting, sm–lg = 2 cols, lg+ = desktop setting */
   .kik-why-pococo__list {
-    @apply m-0 list-none gap-xl p-0;
+    @apply m-0 grid list-none gap-xl p-0;
   }
 
   .kik-why-pococo__list[data-cols-mobile="1"] {
-    @apply grid grid-cols-1;
+    @apply grid-cols-1 sm:grid-cols-2;
   }
 
   .kik-why-pococo__list[data-cols-mobile="2"] {
-    @apply grid grid-cols-2;
+    @apply grid-cols-2;
+  }
+
+  /* Tablet tier (sm–lg): always 2 cols — must match or beat [data-cols-mobile] specificity */
+  .kik-why-pococo__list[data-cols-mobile="1"],
+  .kik-why-pococo__list[data-cols-mobile="2"],
+  .kik-why-pococo__list.kik-why-pococo__list--slider {
+    @apply sm:max-lg:grid-cols-2;
   }
 
   .kik-why-pococo__list[data-cols-desktop="1"] {
-    @apply md:grid-cols-1;
+    @apply lg:grid-cols-1;
   }
 
   .kik-why-pococo__list[data-cols-desktop="2"] {
-    @apply md:grid-cols-2;
+    @apply lg:grid-cols-2;
   }
 
   .kik-why-pococo__list[data-cols-desktop="3"] {
-    @apply md:grid-cols-3;
+    @apply lg:grid-cols-3;
   }
 
   .kik-why-pococo__list[data-cols-desktop="4"] {
-    @apply md:grid-cols-4;
+    @apply lg:grid-cols-4;
   }
 
   .kik-why-pococo__list[data-cols-desktop="5"] {
-    @apply md:grid-cols-5;
+    @apply lg:grid-cols-5;
   }
 
   .kik-why-pococo__list[data-cols-desktop="6"] {
-    @apply md:grid-cols-6;
+    @apply lg:grid-cols-6;
   }
 
-  /* Combined selector beats [data-cols-mobile] grid so mobile swipe can scroll */
+  /* Swipe layout only below sm; sm+ uses the grid tiers above */
   .kik-why-pococo__list.kik-why-pococo__list--slider {
-    @apply flex snap-x snap-mandatory overflow-x-auto scroll-smooth touch-pan-x max-md:[-webkit-overflow-scrolling:touch] md:grid md:overflow-visible md:snap-none;
+    @apply max-sm:flex max-sm:snap-x max-sm:snap-mandatory max-sm:overflow-x-auto max-sm:scroll-smooth max-sm:touch-pan-x max-sm:[-webkit-overflow-scrolling:touch] sm:grid sm:grid-cols-2 sm:overflow-visible sm:snap-none;
   }
 
   .kik-why-pococo__list.kik-why-pococo__list--slider::after {
     content: "";
-    @apply w-4 shrink-0 md:hidden;
+    @apply w-4 shrink-0 max-sm:block sm:hidden;
   }
 
   .kik-why-pococo__list.kik-why-pococo__list--slider .kik-why-pococo__item {
-    @apply min-w-[calc(100%-2rem)] shrink-0 snap-start md:min-w-0 md:shrink;
+    @apply max-sm:min-w-[calc(100%-2rem)] max-sm:shrink-0 max-sm:snap-start sm:min-w-0 sm:shrink;
   }
 
   .kik-why-pococo__item {
@@ -345,7 +353,7 @@
   }
 
   .kik-why-pococo__media {
-    @apply relative block w-full overflow-hidden rounded-md bg-alt-2 max-md:h-auto max-md:aspect-[350/221.11] md:h-[187px];
+    @apply relative block w-full overflow-hidden rounded-md bg-alt-2 max-sm:h-auto max-sm:aspect-[350/221.11] sm:h-[187px];
   }
 
   .kik-why-pococo__media .kik-why-pococo__image {
@@ -393,7 +401,7 @@
   }
 
   .kik-why-pococo__slider-nav {
-    @apply mt-4 flex items-center justify-center gap-4 md:hidden;
+    @apply mt-4 flex items-center justify-center gap-4 sm:hidden;
   }
 
   .kik-why-pococo__slider-btn {
@@ -409,7 +417,7 @@
   }
 
   .kik-why-pococo__title-link {
-    @apply font-sans text-body-md text-primary underline md:hidden;
+    @apply font-sans text-body-md text-primary underline sm:hidden;
   }
 }
 

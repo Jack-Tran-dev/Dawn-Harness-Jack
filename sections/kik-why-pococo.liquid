@@ -93,8 +93,8 @@
                     -%}
                     {% capture sizes %}
                       (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ grid_space_desktop }}) / {{ number_of_columns }}),
-                      (min-width: 990px) calc((100vw - {{ grid_space_desktop }}) / {{ number_of_columns }}),
-                      (min-width: 768px) calc((100vw - {{ grid_space_tablet }}) / {{ number_of_columns_mobile }}),
+                      (min-width: 1024px) calc((100vw - {{ grid_space_desktop }}) / {{ number_of_columns }}),
+                      (min-width: 640px) calc((100vw - {{ grid_space_tablet }}) / 2),
                       calc((100vw - {{ grid_space_mobile }}) / {{ number_of_columns_mobile }})
                     {% endcapture %}
                     {{
@@ -162,7 +162,7 @@
       {%- endif -%}
     </kik-why-pococo-slider>
 
-    <div class="kik-why-pococo__footer{% if show_mobile_slider %} hidden md:flex{% endif %}">
+    <div class="kik-why-pococo__footer{% if show_mobile_slider %} hidden sm:flex{% endif %}">
       {%- if section.settings.button_label != blank -%}
         <a
           class="kik-why-pococo__btn"
@@ -241,7 +241,8 @@
       "max": 6,
       "step": 1,
       "default": 4,
-      "label": "Number of columns on desktop"
+      "label": "Number of columns on desktop",
+      "info": "Applied at lg (1024px+). Tablet sm–lg (640–1023px) always uses 2 columns."
     },
     {
       "type": "select",
@@ -281,7 +282,8 @@
         { "value": "2", "label": "2 columns" }
       ],
       "default": "1",
-      "label": "Number of columns on mobile"
+      "label": "Number of columns on mobile",
+      "info": "Applied below sm breakpoint (640px)."
     },
     {
       "type": "checkbox",
