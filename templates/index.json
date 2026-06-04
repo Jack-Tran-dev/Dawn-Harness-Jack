@@ -233,7 +233,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Why-pococo-4.png",
-            "title": "No App. No Phone. No Bedtime Scrolling.",
+            "title": "<strong>No App. No Phone. No Bedtime Scrolling.</strong>",
             "text": "<p>Control everything with three simple buttons — power, rotate, and timer. No Wi‑Fi, no setup, no notifications.</p>",
             "link_label": "",
             "link": ""
@@ -243,7 +243,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Why-pococo-3.png",
-            "title": "Create a Softer Way to Unwind",
+            "title": "<strong>Create a Softer Way to Unwind</strong>",
             "text": "<p>Fill your ceiling and walls with slow-moving celestial scenes that help your room feel quieter and more peaceful.</p>",
             "link_label": "",
             "link": ""
@@ -253,7 +253,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Why-pococo-2.png",
-            "title": "Realistic Stars, Not Laser Dots",
+            "title": "<strong>Realistic Stars, Not Laser Dots</strong>",
             "text": "<p>Pococo uses projection discs with detailed cosmic scenes, giving your room a more immersive night-sky experience.</p>",
             "link_label": "",
             "link": ""
@@ -263,7 +263,7 @@
           "type": "column",
           "settings": {
             "image": "shopify://shop_images/Why-pococo-1.png",
-            "title": "Soft Light That Won’t Take Over the Room",
+            "title": "<strong>Soft Light That Won’t Take Over the Room</strong>",
             "text": "<p>Gentle, indirect projection creates ambiance without harsh brightness, making it easier to relax before sleep.</p>",
             "link_label": "",
             "link": ""
@@ -278,7 +278,7 @@
       ],
       "name": "Kik Why Pococo",
       "settings": {
-        "title": "Why Pococo Feels Different at Night",
+        "title": "<strong>Why Pococo Feels Different at Night</strong>",
         "subheading": "<p>Designed to help you create a calmer room, reduce screen time, and ease into rest.</p>",
         "heading_size": "h2",
         "button_label": "",
